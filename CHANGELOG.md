@@ -10,6 +10,8 @@
 - Fix insemination button showing on male animals
 - Fix monitor visual not disappearing when removing monitor from animal
 - Fix batch "Remove All Monitors" button not reflecting pending removal state
+- Fix milk/wool/goat milk info not showing on dedicated server clients (RIT-218)
+- Protect GUI setup with pcall for dedicated server safety
 
 ## v0.6.1.0:
 - Fix AI dialog insemination not syncing in multiplayer (AnimalAIDialog)

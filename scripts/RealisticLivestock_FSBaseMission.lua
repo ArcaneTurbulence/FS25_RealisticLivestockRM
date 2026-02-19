@@ -85,35 +85,17 @@ function RealisticLivestock_FSBaseMission:onStartMission()
     AnimalFilterDialog.register()
     RmMigrationDialog.register()
 
-    print("FSBaseMission: onStartMission - checking migration state")
-    print("FSBaseMission: g_rmMigrationConflict = " .. tostring(g_rmMigrationConflict))
-    print("FSBaseMission: g_rmPendingMigration = " .. tostring(g_rmPendingMigration))
-    print("FSBaseMission: g_rmMigrationManager = " .. tostring(g_rmMigrationManager))
-
     -- Handle migration conflict or pending migration (server only)
     if self:getIsServer() then
-        print("FSBaseMission: Running on server")
         if g_rmMigrationConflict then
-            -- Show conflict dialog and block mission
-            print("FSBaseMission: Showing conflict dialog")
             if g_rmMigrationManager ~= nil then
                 g_rmMigrationManager:showConflictDialog()
-            else
-                print("FSBaseMission: ERROR - g_rmMigrationManager is nil!")
             end
         elseif g_rmPendingMigration then
-            -- Show migration dialog
-            print("FSBaseMission: Showing migration dialog")
             if g_rmMigrationManager ~= nil then
                 g_rmMigrationManager:showMigrationDialog()
-            else
-                print("FSBaseMission: ERROR - g_rmMigrationManager is nil!")
             end
-        else
-            print("FSBaseMission: No migration action needed")
         end
-    else
-        print("FSBaseMission: Not running on server")
     end
 
     RLSettings.applyDefaultSettings()
@@ -135,12 +117,15 @@ function RealisticLivestock_FSBaseMission:onStartMission()
 
     end
 
-    local realisticLivestockFrame = RealisticLivestockFrame.new() 
-	g_gui:loadGui(modDirectory .. "gui/RealisticLivestockFrame.xml", "RealisticLivestockFrame", realisticLivestockFrame, true)
-
-    fixInGameMenu(realisticLivestockFrame, "realisticLivestockFrame", {260,0,256,256}, 4, function() return true end)
-
-    realisticLivestockFrame:initialize()
+    local guiOk, guiErr = pcall(function()
+        local realisticLivestockFrame = RealisticLivestockFrame.new()
+        g_gui:loadGui(modDirectory .. "gui/RealisticLivestockFrame.xml", "RealisticLivestockFrame", realisticLivestockFrame, true)
+        fixInGameMenu(realisticLivestockFrame, "realisticLivestockFrame", {260,0,256,256}, 4, function() return true end)
+        realisticLivestockFrame:initialize()
+    end)
+    if not guiOk then
+        Logging.warning("RealisticLivestock: GUI setup failed (expected on dedicated server): %s", tostring(guiErr))
+    end
 
 end
 

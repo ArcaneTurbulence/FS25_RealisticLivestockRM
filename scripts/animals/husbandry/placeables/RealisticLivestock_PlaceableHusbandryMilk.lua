@@ -8,7 +8,23 @@ end
 PlaceableHusbandryMilk.registerOverwrittenFunctions = Utils.appendedFunction(PlaceableHusbandryMilk.registerOverwrittenFunctions, RealisticLivestock_PlaceableHusbandryMilk.registerOverwrittenFunctions)
 
 
-function RealisticLivestock_PlaceableHusbandryMilk:onHusbandryAnimalsUpdate(_, _) end
+function RealisticLivestock_PlaceableHusbandryMilk:onHusbandryAnimalsUpdate(superFunc, clusters)
+	-- Skip superFunc (no base game cluster-based litersPerHour calculation)
+	-- But populate activeFillTypes for UI display on both server and client
+	local spec = self.spec_husbandryMilk
+	if spec.hasMilkProduction then
+		spec.activeFillTypes = {}
+		for _, animal in ipairs(clusters) do
+			local subType = animal:getSubType()
+			if subType ~= nil then
+				local milk = subType.output.milk
+				if milk ~= nil then
+					table.addElement(spec.activeFillTypes, milk.fillType)
+				end
+			end
+		end
+	end
+end
 
 PlaceableHusbandryMilk.onHusbandryAnimalsUpdate = Utils.overwrittenFunction(PlaceableHusbandryMilk.onHusbandryAnimalsUpdate, RealisticLivestock_PlaceableHusbandryMilk.onHusbandryAnimalsUpdate)
 
