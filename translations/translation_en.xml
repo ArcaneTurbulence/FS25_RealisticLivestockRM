@@ -73,6 +73,14 @@
 
 
 		<text name="input_VisualAnimalsDialog" text="Change Visual Animals Amount"/>
+		<text name="input_RL_OPEN_ANIMAL_SCREEN" text="Open Animal Screen"/>
+		<text name="input_RL_MARK" text="Mark/Unmark Animal"/>
+		<text name="input_RL_MONITOR" text="Apply/Remove Monitor"/>
+		<text name="input_RL_AI" text="Artificial Insemination"/>
+		<text name="input_RL_CASTRATE" text="Castrate Animal"/>
+		<text name="input_RL_DISEASES" text="Animal Diseases"/>
+		<text name="input_RL_SELECT" text="Select/Deselect Animal"/>
+		<text name="rl_ui_openAnimalScreen" text="Manage Animals"/>
 		<text name="rl_button_apply" text="Apply"/>
 		<text name="rl_button_confirm" text="Confirm"/>
 		<text name="rl_button_recommended" text="Recommended"/>
@@ -168,6 +176,7 @@
 		<text name="rl_ui_monitorFee" text="Monitor fee"/>
 		<text name="rl_ui_applyMonitor" text="Apply Monitor"/>
 		<text name="rl_ui_removeMonitor" text="Remove Monitor"/>
+		<text name="rl_ui_removingMonitor" text="Removing..."/>
 		<text name="rl_ui_input_food" text="Food"/>
 		<text name="rl_ui_input_water" text="Water"/>
 		<text name="rl_ui_input_straw" text="Straw"/>
@@ -185,6 +194,7 @@
 		<text name="rl_ui_production" text="Products"/>
 		<text name="rl_ui_applyAllMonitor" text="Apply All Monitors"/>
 		<text name="rl_ui_removeAllMonitor" text="Remove All Monitors"/>
+		<text name="rl_ui_removingAllMonitor" text="Removing All..."/>
 		<text name="rl_ui_fee" text="Fee"/>
 
 		<text name="rl_ui_leftEarTag" text="Left Ear Tag"/>

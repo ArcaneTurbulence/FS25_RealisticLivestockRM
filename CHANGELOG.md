@@ -1,5 +1,16 @@
 # Changelog
 
+## v0.7.0.0-dev:
+- Add "Manage Animals" (R) button to in-game animal menu for easier management
+- Add "Select" (A) to check/uncheck selection boxes in buy and sell
+- Disable insemination button when female is ineligible (pregnant, too young, recovering)
+- Show "Removing..." state on monitor button when removal is pending
+- Fix keybinding collisions in AnimalScreen — each action now has a unique key (D=Diseases, C=Castrate, M=Monitor, I=Insemination, X=Mark)
+- Fix Mother/Father/Children info buttons intercepting Mark/Castrate keypresses — now mouse-only
+- Fix insemination button showing on male animals
+- Fix monitor visual not disappearing when removing monitor from animal
+- Fix batch "Remove All Monitors" button not reflecting pending removal state
+
 ## v0.6.1.0:
 - Fix AI dialog insemination not syncing in multiplayer (AnimalAIDialog)
 - Fix AI dialog insemination blocked for cows that never gave birth (missing isParent guard)

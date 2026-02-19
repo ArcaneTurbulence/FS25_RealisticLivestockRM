@@ -66,3 +66,28 @@ function RealisticLivestock_InGameMenuAnimalsFrame:populateCellForItemInSection(
 end
 
 InGameMenuAnimalsFrame.populateCellForItemInSection = Utils.appendedFunction(InGameMenuAnimalsFrame.populateCellForItemInSection, RealisticLivestock_InGameMenuAnimalsFrame.populateCellForItemInSection)
+
+
+-- Register RL_OPEN_ANIMAL_SCREEN action in Gui.NAV_ACTIONS so the key works in menus
+if Gui ~= nil and Gui.NAV_ACTIONS ~= nil then
+    table.insert(Gui.NAV_ACTIONS, InputAction.RL_OPEN_ANIMAL_SCREEN)
+end
+
+
+function RealisticLivestock_InGameMenuAnimalsFrame:onUpdateMenuButtons()
+    local selectedHusbandry = self.selectedHusbandry
+    if selectedHusbandry == nil then return end
+
+    table.insert(self.menuButtonInfo, {
+        inputAction = InputAction.RL_OPEN_ANIMAL_SCREEN,
+        text = g_i18n:getText("rl_ui_openAnimalScreen"),
+        callback = function()
+            AnimalScreen.show(selectedHusbandry, nil, false)
+        end
+    })
+end
+
+InGameMenuAnimalsFrame.updateMenuButtons = Utils.appendedFunction(
+    InGameMenuAnimalsFrame.updateMenuButtons,
+    RealisticLivestock_InGameMenuAnimalsFrame.onUpdateMenuButtons
+)

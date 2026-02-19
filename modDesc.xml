@@ -1,6 +1,6 @@
 <modDesc descVersion="106">
     <author>Ritter</author>
-    <version>0.6.1.0</version>
+    <version>0.7.0.0-dev</version>
     <title>
         <en>Realistic Livestock - Ritter version</en>
         <it>Allevamento Realistico - Versione Ritter</it>
@@ -24,6 +24,17 @@ Documentation: https://rittermod.github.io/FS25_RealisticLivestockRM/
 
 Changelog
 
+v0.7.0.0-dev:
+- Add "Manage Animals" (R) button to in-game animal menu for easier management
+- Add "Select" (A) to check/uncheck selection boxes in buy and sell
+- Disable insemination button when female is ineligible (pregnant, too young, recovering)
+- Show "Removing..." state on monitor button when removal is pending
+- Fix keybinding collisions in AnimalScreen — each action now has a unique key (D=Diseases, C=Castrate, M=Monitor, I=Insemination, X=Mark)
+- Fix Mother/Father/Children info buttons intercepting Mark/Castrate keypresses — now mouse-only
+- Fix insemination button showing on male animals
+- Fix monitor visual not disappearing when removing monitor from animal
+- Fix batch "Remove All Monitors" button not reflecting pending removal state
+
 v0.6.1.0:
 - Fix AI dialog insemination not syncing in multiplayer (AnimalAIDialog)
 - Fix AI dialog insemination blocked for cows that never gave birth (missing isParent guard)
@@ -37,16 +48,6 @@ v0.6.1.0:
 - Fixed error spam when dismounting horse outside pen in multiplayer
 - Fix black screen when multiplayer client tries to ride a horse
 - Fix multiplayer client unable to clean horses
-
-v0.6.0.0:
-- Add user guides and factsheets
-- Add optional daily summary mode for message log to reduce noise on large farms (new setting: Message Log Summaries)
-- Added "Reset AI Animals" button to settings to regenerate the AI straw catalog with new randomly generated animals
-- Fix potential milk production loss that could occur when birth errors were silently caught
-- Fix potential game freeze when selling animals with an active filter
-- Fix potential mod errors blocking crop growth and other periodic game updates
-- Fix texture warning for LED panel mask map
-- Add Danish translation update and Chinese translation (community contributions)
 
 ]]>
         </en>
@@ -76,9 +77,37 @@ Modifiche principali rispetto al mod originale:
         <actionBinding action="VisualAnimalsDialog">
             <binding device="KB_MOUSE_DEFAULT" input="KEY_lshift KEY_t"/>
         </actionBinding>
+        <actionBinding action="RL_OPEN_ANIMAL_SCREEN">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_r" index="1"/>
+        </actionBinding>
+        <actionBinding action="RL_MARK">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_x" index="1"/>
+        </actionBinding>
+        <actionBinding action="RL_MONITOR">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_m" index="1"/>
+        </actionBinding>
+        <actionBinding action="RL_AI">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_i" index="1"/>
+        </actionBinding>
+        <actionBinding action="RL_CASTRATE">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_c" index="1"/>
+        </actionBinding>
+        <actionBinding action="RL_DISEASES">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_d" index="1"/>
+        </actionBinding>
+        <actionBinding action="RL_SELECT">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_a" index="1"/>
+        </actionBinding>
     </inputBinding>
     <actions>
         <action name="VisualAnimalsDialog"/>
+        <action name="RL_OPEN_ANIMAL_SCREEN"/>
+        <action name="RL_MARK"/>
+        <action name="RL_MONITOR"/>
+        <action name="RL_AI"/>
+        <action name="RL_CASTRATE"/>
+        <action name="RL_DISEASES"/>
+        <action name="RL_SELECT"/>
     </actions>
     <helpLines>
 

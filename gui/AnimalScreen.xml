@@ -830,10 +830,13 @@
 		<Button profile="buttonMenuSwitch" text="$l10n_button_buy" onClick="onClickBuy" id="buttonBuy">
 			<Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
 		</Button>
+		<Button profile="buttonMenuSwitch" text="$l10n_button_sell" onClick="onClickSell" id="buttonSell">
+			<Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
+		</Button>
 		<Button profile="buttonOK" text="$l10n_button_buy" onClick="onClickBuyAI" id="buttonBuyAI">
 			<Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
 		</Button>
-		<Button profile="buttonMenuSwitch" text="$l10n_rl_diseases" onClick="onClickDiseases" id="buttonDiseases">
+		<Button profile="rlButtonDiseases" text="$l10n_rl_diseases" onClick="onClickDiseases" id="buttonDiseases">
 			<Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
 		</Button>
 		<Button profile="buttonMenuSwitch" text="$l10n_rl_ui_favourite" onClick="onClickFavouriteAnimal" id="buttonFavourite">
@@ -842,16 +845,16 @@
 		<Button profile="rlButtonMenuExtra2" text="$l10n_rl_ui_buySelected" onClick="onClickBuySelected" id="buttonBuySelected">
 			<Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
 		</Button>
-		<Button profile="buttonMenuSwitch" text="$l10n_rl_ui_castrate" onClick="onClickCastrate" id="buttonCastrate">
+		<Button profile="rlButtonMenuExtra2" text="$l10n_rl_ui_castrate" onClick="onClickCastrate" id="buttonCastrate">
 			<Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
 		</Button>
-		<Button profile="rlButtonMenuExtra2" text="$l10n_rl_ui_applyMonitor" onClick="onClickMonitor" id="buttonMonitor">
+		<Button profile="rlButtonMonitor" text="$l10n_rl_ui_applyMonitor" onClick="onClickMonitor" id="buttonMonitor">
 			<Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
 		</Button>
-		<Button profile="rlButtonMenuExtra2" text="$l10n_rl_ui_artificialInsemination" onClick="onClickArtificialInsemination" id="buttonArtificialInsemination">
+		<Button profile="rlButtonAI" text="$l10n_rl_ui_artificialInsemination" onClick="onClickArtificialInsemination" id="buttonArtificialInsemination">
 			<Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
 		</Button>
-		<Button profile="rlButtonMenuExtra2" text="$l10n_rl_ui_mark" onClick="onClickMark" id="buttonMark">
+		<Button profile="buttonMenuSwitch" text="$l10n_rl_ui_mark" onClick="onClickMark" id="buttonMark">
 			<Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
 		</Button>
 		<Button profile="buttonSelect" text="$l10n_rl_ui_selectAll" onClick="onClickToggleSelectAll" id="buttonToggleSelectAll">
@@ -860,27 +863,24 @@
 		<Button profile="buttonBuy" text="$l10n_rl_ui_rename" onClick="onClickRename" id="buttonRename">
 			<Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
 		</Button>
-		<Button profile="buttonMenuSwitch" text="$l10n_button_sell" onClick="onClickSell" id="buttonSell">
-			<Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
-		</Button>
 		<Button profile="buttonOK" text="$l10n_rl_button_apply" onClick="onClickApplyHerdsmanSettings" id="buttonApplyHerdsmanSettings">
 			<Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
 		</Button>
 		<Button profile="buttonOK" text="$l10n_button_select" onClick="onClickSelect" id="buttonSelect">
 			<Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
 		</Button>
+		<Button profile="rlButtonSelect" text="$l10n_button_select" onClick="onClickRLSelect" id="buttonRLSelect">
+			<Bitmap profile="fs25_buttonBoxSeparator" name="separator"/>
+		</Button>
 	</BoxLayout>
 	<GUIProfiles>
-		<Profile name="rl_animalInfoButtonMother" extends="fs25_wideButton" with="touchButton anchorMiddleLeft">
-			<inputAction value="MENU_EXTRA_1"/>
+		<Profile name="rl_animalInfoButtonMother" extends="fs25_wideButton" with="anchorMiddleLeft">
 			<touchIconSliceId value="gui.tick"/>
 		</Profile>
-		<Profile name="rl_animalInfoButtonFather" extends="fs25_wideButton" with="touchButton anchorMiddleLeft">
-			<inputAction value="MENU_EXTRA_2"/>
+		<Profile name="rl_animalInfoButtonFather" extends="fs25_wideButton" with="anchorMiddleLeft">
 			<touchIconSliceId value="gui.tick"/>
 		</Profile>
-		<Profile name="rl_animalInfoButtonChildren" extends="fs25_wideButton" with="touchButton anchorMiddleLeft">
-			<inputAction value="MENU_ACTIVATE"/>
+		<Profile name="rl_animalInfoButtonChildren" extends="fs25_wideButton" with="anchorMiddleLeft">
 			<touchIconSliceId value="gui.tick"/>
 		</Profile>
 		<Profile name="fs25_animalParentTabListBox" extends="emptyPanel" with="anchorBottomLeft">
@@ -933,6 +933,18 @@
 
 		<Profile name="rlButtonMenuExtra2" extends="fs25_wideButton" with="touchButton">
 			<inputAction value="MENU_EXTRA_2"/>
+		</Profile>
+		<Profile name="rlButtonMonitor" extends="fs25_wideButton" with="touchButton">
+			<inputAction value="RL_MONITOR"/>
+		</Profile>
+		<Profile name="rlButtonAI" extends="fs25_wideButton" with="touchButton">
+			<inputAction value="RL_AI"/>
+		</Profile>
+		<Profile name="rlButtonDiseases" extends="fs25_wideButton" with="touchButton">
+			<inputAction value="RL_DISEASES"/>
+		</Profile>
+		<Profile name="rlButtonSelect" extends="fs25_wideButton" with="touchButton">
+			<inputAction value="RL_SELECT"/>
 		</Profile>
 
 		<Profile name="rl_animalScreenScrollingLayout" extends="emptyPanel" with="anchorStretchingYRight">

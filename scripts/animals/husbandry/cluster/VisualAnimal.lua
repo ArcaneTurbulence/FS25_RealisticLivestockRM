@@ -70,7 +70,7 @@ function VisualAnimal:setMonitor()
 
 	if self.nodes.monitor == nil then return end
 
-    setVisibility(self.nodes.monitor, self.animal.monitor.active or self.animal.monitor.removed)
+    setVisibility(self.nodes.monitor, self.animal.monitor.active)
 
 end
 

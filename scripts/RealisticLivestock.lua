@@ -6,7 +6,7 @@ local hasLoaded = false
 -- Initialize the font manager (inlined from FontLibrary)
 RealisticLivestock.fontManager = RmFontManager.new(g_currentModDirectory)
 RealisticLivestock.FONTS = RealisticLivestock.fontManager:loadFontsFromXMLFile(
-g_currentModDirectory .. "fonts/fonts.xml", g_currentModDirectory)
+    g_currentModDirectory .. "fonts/fonts.xml", g_currentModDirectory)
 
 -- Expose font functions in mod namespace (no global pollution)
 RealisticLivestock.setTextFont = function(fontName)
@@ -307,8 +307,10 @@ function RealisticLivestock.formatAge(age)
 
     local monthsString = months == 1 and g_i18n:getText("rl_ui_month") or g_i18n:getText("rl_ui_months")
 
-    if years > 0 then return string.format("%s %s, %s %s", years,
-            years == 1 and g_i18n:getText("rl_ui_year") or g_i18n:getText("rl_ui_years"), months, monthsString) end
+    if years > 0 then
+        return string.format("%s %s, %s %s", years,
+            years == 1 and g_i18n:getText("rl_ui_year") or g_i18n:getText("rl_ui_years"), months, monthsString)
+    end
 
     return string.format("%s %s", months, monthsString)
 end
@@ -673,8 +675,10 @@ function RealisticLivestock:updateReproduction(spec, cluster, numNewAnimals, fre
         end
     end
 
-    if totalOffspring > 0 or animalsToSell > 0 then g_currentMission:addIngameNotification(
-        FSBaseMission.INGAME_NOTIFICATION_CRITICAL, msgText) end
+    if totalOffspring > 0 or animalsToSell > 0 then
+        g_currentMission:addIngameNotification(
+            FSBaseMission.INGAME_NOTIFICATION_CRITICAL, msgText)
+    end
 end
 
 function RealisticLivestock.KillAnimals(spec, cluster, amount)
@@ -777,8 +781,10 @@ function RealisticLivestock.CalculateLowHealthMonthlyAnimalDeaths(spec, cluster)
 
         msgText = numAnimalsToDispose .. " " .. animalTypeText .. " died due to low health"
 
-        if numAnimalsToDispose >= 1 then g_currentMission:addIngameNotification(
-            FSBaseMission.INGAME_NOTIFICATION_CRITICAL, msgText) end
+        if numAnimalsToDispose >= 1 then
+            g_currentMission:addIngameNotification(
+                FSBaseMission.INGAME_NOTIFICATION_CRITICAL, msgText)
+        end
     end
 end
 
@@ -879,8 +885,10 @@ function RealisticLivestock.CalculateOldAgeMonthlyAnimalDeaths(spec, cluster)
 
         msgText = numAnimalsToDispose .. " " .. animalTypeText .. " died due to old age"
 
-        if numAnimalsToDispose >= 1 then g_currentMission:addIngameNotification(
-            FSBaseMission.INGAME_NOTIFICATION_CRITICAL, msgText) end
+        if numAnimalsToDispose >= 1 then
+            g_currentMission:addIngameNotification(
+                FSBaseMission.INGAME_NOTIFICATION_CRITICAL, msgText)
+        end
     end
 end
 
@@ -1022,8 +1030,10 @@ function RealisticLivestock.CalculateRandomMonthlyAnimalDeaths(spec, cluster, is
         msgText = numAnimalsToDispose .. " " .. animalTypeText .. " died due to accidents"
         if animalsCanBeSold then msgText = msgText .. ", sold for £" .. math.floor(totalAnimalPrice) end
 
-        if numAnimalsToDispose >= 1 then g_currentMission:addIngameNotification(
-            FSBaseMission.INGAME_NOTIFICATION_CRITICAL, msgText) end
+        if numAnimalsToDispose >= 1 then
+            g_currentMission:addIngameNotification(
+                FSBaseMission.INGAME_NOTIFICATION_CRITICAL, msgText)
+        end
     end
 end
 
