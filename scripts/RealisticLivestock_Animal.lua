@@ -1,5 +1,6 @@
 Animal = {}
 local Animal_mt = Class(Animal)
+local Log = RmLogging.getLogger("RLRM")
 
 --- Resolves subType by index, with fallback to name lookup or default index 1
 -- @param subTypeIndex number The initial subType index
@@ -2379,10 +2380,17 @@ function Animal:createPregnancy(childNum, month, year, father)
             if self.subType == "COW_WATERBUFFALO" and animal.subType ~= "BULL_WATERBUFFALO" then continue end
             if self.subType == "GOAT" and animal.subType ~= "RAM_GOAT" then continue end
 
+            -- Bridge breeding compatibility check
+            if RLMapBridge.isBreedingCompatible(animal.subType, self.subType) == false then
+                Log:debug("createPregnancy: Bridge says '%s' incompatible with '%s', skipping father", animal.subType, self.subType)
+                continue
+            end
+
             local animalType = animal.animalTypeIndex
 
             local animalSubType = animal:getSubType()
-            local maxFertilityMonth = (animalType == AnimalType.COW and 132) or (animalType == AnimalType.SHEEP and 72) or (animalType == AnimalType.HORSE and 300) or (animalType == AnimalType.CHICKEN and 1000) or (animalType == AnimalType.PIG and 48) or 120
+            local bridgeMaxAge = RLMapBridge.getMaxFertilityAge(animal.subType)
+            local maxFertilityMonth = bridgeMaxAge or (animalType == AnimalType.COW and 132) or (animalType == AnimalType.SHEEP and 72) or (animalType == AnimalType.HORSE and 300) or (animalType == AnimalType.CHICKEN and 1000) or (animalType == AnimalType.PIG and 48) or 120
             maxFertilityMonth = maxFertilityMonth * animal.genetics.fertility
 
             if animalSubType.reproductionMinAgeMonth ~= nil and animal:getAge() >= animalSubType.reproductionMinAgeMonth and animal:getAge() < maxFertilityMonth then
@@ -2455,6 +2463,50 @@ function Animal:createPregnancy(childNum, month, year, father)
 
             subTypeIndex = self.subTypeIndex + (gender == "male" and 1 or 0)
 
+        end
+
+        -- Validate subtype index: must be correct gender and same animal type.
+        -- If index arithmetic produced a wrong result (e.g. bridge subtypes with non-adjacent indices),
+        -- fall back to breed-aware search: prefer same breed + gender, then any gender match in type.
+        local animalSystem = g_currentMission.animalSystem
+        local candidateSubType = animalSystem:getSubTypeByIndex(subTypeIndex)
+
+        if candidateSubType == nil or candidateSubType.gender ~= gender or candidateSubType.typeIndex ~= self.animalTypeIndex then
+            local animalTypeObj = animalSystem:getTypeByIndex(self.animalTypeIndex)
+            local breedFallback = nil
+            local genderFallback = nil
+
+            if animalTypeObj ~= nil then
+                -- First pass: find matching breed + gender (preferred)
+                -- Second pass: any matching gender (fallback)
+                for _, stIndex in pairs(animalTypeObj.subTypes) do
+                    local st = animalSystem:getSubTypeByIndex(stIndex)
+                    if st ~= nil and st.gender == gender then
+                        if genderFallback == nil then
+                            genderFallback = stIndex
+                        end
+                        if st.breed == self.breed then
+                            breedFallback = stIndex
+                            break
+                        end
+                    end
+                end
+            end
+
+            local fallbackIndex = breedFallback or genderFallback
+
+            if fallbackIndex ~= nil then
+                Log:debug("Animal:createPregnancy: Offspring subtype fallback for gender '%s' breed '%s': index %d -> %d (type=%s, breedMatch=%s)",
+                    gender, self.breed or "?", subTypeIndex, fallbackIndex, animalTypeObj and animalTypeObj.name or "?",
+                    tostring(breedFallback ~= nil))
+                subTypeIndex = fallbackIndex
+            else
+                Log:debug("Animal:createPregnancy: No fallback subtype found for gender '%s' in type %d, keeping index %d",
+                    gender, self.animalTypeIndex, subTypeIndex)
+            end
+        else
+            Log:debug("Animal:createPregnancy: Offspring subtype index %d valid (gender=%s, type=%s)",
+                subTypeIndex, gender, candidateSubType.name or "?")
         end
 
 

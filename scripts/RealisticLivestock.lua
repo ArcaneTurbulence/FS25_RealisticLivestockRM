@@ -269,7 +269,9 @@ function RealisticLivestock.loadMap()
     Log:setLevel(RmLogging.LOG_LEVEL.INFO)
     RmLogging.registerConsoleCommands()
 
-    RealisticLivestock.mapAreaCode = RealisticLivestock.MAP_TO_AREA_CODE[g_currentMission.missionInfo.mapTitle] or 1
+    RealisticLivestock.mapAreaCode = RLMapBridge.getMapAreaCode()
+        or RealisticLivestock.MAP_TO_AREA_CODE[g_currentMission.missionInfo.mapTitle]
+        or 1
     g_overlayManager:addTextureConfigFile(modDirectory .. "gui/helpicons.xml", "rlHelpIcons")
     g_overlayManager:addTextureConfigFile(modDirectory .. "gui/icons.xml", "realistic_livestock")
     g_overlayManager:addTextureConfigFile(modDirectory .. "gui/fileTypeIcons.xml", "fileTypeIcons")
@@ -628,7 +630,6 @@ function RealisticLivestock:updateReproduction(spec, cluster, numNewAnimals, fre
         if farm ~= nil then
             farm:changeBalance(totalAnimalPrice, MoneyType.SOLD_ANIMALS)
         end
-
     end
 
     if totalOffspring >= 1 then
@@ -959,7 +960,6 @@ function RealisticLivestock.CalculateRandomMonthlyAnimalDeaths(spec, cluster, is
             if farm ~= nil then
                 farm:changeBalance(totalAnimalPrice, MoneyType.SOLD_ANIMALS)
             end
-
         end
 
         local animalTypeText = ""
@@ -1035,23 +1035,64 @@ function RealisticLivestock.hasMaleAnimalInPen(spec, subT, female)
     local animalType = female == nil and spec.animalTypeIndex or female.animalTypeIndex
     local fatherId = (female ~= nil and female.fatherId ~= "-1") and female.fatherId or "-2"
 
+    Log:trace("hasMaleAnimalInPen: Checking for subT='%s', animalType=%s, fatherId='%s', totalAnimals=%d",
+        subT, tostring(animalType), fatherId, #animals)
+
     for _, animal in pairs(animals) do
-        if animal.isCastrated or animal.genetics.fertility <= 0 then continue end
+        if animal.isCastrated or animal.genetics.fertility <= 0 then
+            Log:trace("hasMaleAnimalInPen:   skip '%s' (castrated=%s, fertility=%.2f)",
+                animal.subType or "?", tostring(animal.isCastrated), animal.genetics.fertility)
+            continue
+        end
 
         local s = animalSystem:getSubTypeByIndex(animal:getSubTypeIndex())
-        if s.reproductionMinAgeMonth == nil or s.reproductionMinAgeMonth > animal.age then continue end
+        if s.reproductionMinAgeMonth == nil or s.reproductionMinAgeMonth > animal.age then
+            Log:trace("hasMaleAnimalInPen:   skip '%s' (reproductionMinAgeMonth=%s, age=%d)",
+                s.name, tostring(s.reproductionMinAgeMonth), animal.age)
+            continue
+        end
 
-        if animal:getIdentifiers() == fatherId then continue end
+        if animal:getIdentifiers() == fatherId then
+            Log:trace("hasMaleAnimalInPen:   skip '%s' (is father)", s.name)
+            continue
+        end
 
         if subT == "COW_WATERBUFFALO" then
             if s.name == "BULL_WATERBUFFALO" and animal.age < 132 then return true end
         elseif subT == "GOAT" then
             if s.name == "RAM_GOAT" and animal.age < 72 then return true end
         elseif s.name ~= "RAM_GOAT" and s.name ~= "BULL_WATERBUFFALO" then
-            if animal.gender == "male" and ((animalType == AnimalType.COW and animal.age < 132) or (animalType == AnimalType.SHEEP and animal.age < 72) or (animalType == AnimalType.HORSE and animal.age < 300) or animalType == AnimalType.CHICKEN or (animalType == AnimalType.PIG and animal.age < 48)) then return true end
+            -- Bridge breeding compatibility check (nil = no opinion, true = compatible, false = incompatible)
+            if RLMapBridge.isBreedingCompatible(s.name, subT) == false then
+                Log:debug("hasMaleAnimalInPen: Bridge says '%s' incompatible with '%s', skipping", s.name, subT)
+            elseif animal.gender == "male" then
+                local bridgeMaxAge = RLMapBridge.getMaxFertilityAge(s.name)
+                local eligible = false
+
+                if bridgeMaxAge ~= nil then
+                    eligible = animal.age < bridgeMaxAge
+                else
+                    eligible = (animalType == AnimalType.COW and animal.age < 132) or
+                    (animalType == AnimalType.SHEEP and animal.age < 72) or
+                    (animalType == AnimalType.HORSE and animal.age < 300) or animalType == AnimalType.CHICKEN or
+                    (animalType == AnimalType.PIG and animal.age < 48) or animal.age < 120
+                end
+
+                if eligible then
+                    Log:debug("hasMaleAnimalInPen: Found eligible male '%s' (age=%d, maxAge=%s) for female subType '%s'",
+                        s.name, animal.age, tostring(bridgeMaxAge or "base"), subT)
+                    return true
+                else
+                    Log:trace("hasMaleAnimalInPen:   skip male '%s' (age=%d, too old, maxAge=%s)",
+                        s.name, animal.age, tostring(bridgeMaxAge or "base"))
+                end
+            else
+                Log:trace("hasMaleAnimalInPen:   skip '%s' (gender=%s, not male)", s.name, animal.gender or "nil")
+            end
         end
     end
 
+    Log:debug("hasMaleAnimalInPen: No eligible male found for female subType '%s' (type=%s)", subT, tostring(animalType))
     return false
 end
 
@@ -1114,7 +1155,6 @@ function RealisticLivestock.onPeriodChanged(self, func)
 end
 
 function RealisticLivestock:updateInfo(superFunc, infoTable)
-
     local spec = self.spec_husbandryAnimals
     local lactatingAnimals = 0
     local clusters = spec.clusterSystem:getClusters()
@@ -1137,7 +1177,6 @@ function RealisticLivestock:updateInfo(superFunc, infoTable)
         table.insert(infoTable, spec.infoLactatingAnimals)
     end
 end
-
 
 function RealisticLivestock.addAnimals(self, superFunc, subTypeIndex, numAnimals, age)
     local mission = g_currentMission
@@ -1171,7 +1210,6 @@ function RealisticLivestock.addAnimals(self, superFunc, subTypeIndex, numAnimals
         end
     end
 end
-
 
 -- Saving and Loading
 

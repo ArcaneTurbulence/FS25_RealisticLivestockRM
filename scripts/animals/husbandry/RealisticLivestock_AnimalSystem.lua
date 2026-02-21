@@ -115,6 +115,9 @@ function RealisticLivestock_AnimalSystem:loadMapData(_, mapXml, mission, baseDir
 
     end
 
+    -- Phase 3: Load bridge animal subtypes for detected maps
+    RLMapBridge.loadBridgeAnimals(self)
+
     self.customEnvironment = modName
 
     Log:info("AnimalSystem: Loaded %s animals:", #self.types)
@@ -400,10 +403,9 @@ function RealisticLivestock_AnimalSystem:loadSubTypes(_, animalType, xmlFile, ke
 			    ["statsBreedingName"] = xmlFile:getString(subTypeKey .. "#statsBreeding") or animalType.statsBreedingName
 		    }
 
-		    table.insert(animalType.subTypes, subType.subTypeIndex)
-
 		    if self:loadSubType(animalType, subType, xmlFile, subTypeKey, directory) then
 
+			    table.insert(animalType.subTypes, subType.subTypeIndex)
 			    table.insert(self.subTypes, subType)
 			    self.nameToSubType[name] = subType
 			    self.nameToSubTypeIndex[name] = subType.subTypeIndex
