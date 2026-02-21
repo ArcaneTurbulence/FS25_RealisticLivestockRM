@@ -26,6 +26,8 @@ This is a maintained version of the original mod by Arrow-kb, who has discontinu
 - Daily summary mode for message log
 - In-game help pages covering monitors, pregnancy, production, weight, and genetics
 - Highland cattle bull support
+- Map support: Hof Bergmann (ducks, geese, cats, rabbits)
+- Simple support for butchers using Extended Production Point (EPP) mod
 - Multiplayer support (server-authoritative)
 
 ## Notes

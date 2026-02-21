@@ -1,8 +1,11 @@
 # Changelog
 
 ## v1.0.1.0-dev:
-- Fix animals disappearing when moved to non-husbandry targets (e.g. EPP butcher production points)
-- Fix bulk move ("C move selected") ignoring trailer/husbandry capacity limits
+- Add Hof Bergmann map support - exotic animals (ducks, geese, cats, rabbits) now support full breeding and reproduction
+- Add basic support for butchers using Extended Production Point (EPP) mod
+- Fix bulk move allowing more animals than target pen capacity
+- Fix error when moving animals to Extended Production Points (EPP butchers)
+- Improve offspring subtype selection for maps with non-standard animal configurations
 
 ## v1.0.0.0:
 - Add "Manage Animals" (R) button to in-game animal menu for easier management
