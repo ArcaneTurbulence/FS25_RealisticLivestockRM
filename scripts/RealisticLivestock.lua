@@ -266,7 +266,6 @@ FinanceStats.statNameToIndex["medicine"] = #FinanceStats.statNames
 
 function RealisticLivestock.loadMap()
     Log = RmLogging.getLogger("RLRM")
-    Log:setLevel(RmLogging.LOG_LEVEL.INFO)
     RmLogging.registerConsoleCommands()
 
     RealisticLivestock.mapAreaCode = RLMapBridge.getMapAreaCode()
@@ -1073,9 +1072,9 @@ function RealisticLivestock.hasMaleAnimalInPen(spec, subT, female)
                     eligible = animal.age < bridgeMaxAge
                 else
                     eligible = (animalType == AnimalType.COW and animal.age < 132) or
-                    (animalType == AnimalType.SHEEP and animal.age < 72) or
-                    (animalType == AnimalType.HORSE and animal.age < 300) or animalType == AnimalType.CHICKEN or
-                    (animalType == AnimalType.PIG and animal.age < 48) or animal.age < 120
+                        (animalType == AnimalType.SHEEP and animal.age < 72) or
+                        (animalType == AnimalType.HORSE and animal.age < 300) or animalType == AnimalType.CHICKEN or
+                        (animalType == AnimalType.PIG and animal.age < 48) or animal.age < 120
                 end
 
                 if eligible then

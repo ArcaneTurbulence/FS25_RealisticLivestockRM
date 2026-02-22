@@ -1,3 +1,5 @@
+local Log = RmLogging.getLogger("RLRM")
+
 RL_AnimalScreenTrailerFarm = {}
 
 function RL_AnimalScreenTrailerFarm:initTargetItems(_)
@@ -59,6 +61,14 @@ function AnimalScreenTrailerFarm:applySourceBulk(animalTypeIndex, items)
     local sourceItems = self.sourceItems[animalTypeIndex]
     local totalMovedAnimals = 0
 
+    -- EPP age constraints (butchers with minimumAge/maximumAge)
+    local eppTypeData = husbandry.animalsTypeData ~= nil and husbandry.animalsTypeData[animalTypeIndex] or nil
+
+    if eppTypeData ~= nil then
+        Log:debug("applySourceBulk: EPP age constraints found for typeIndex=%d (minAge=%s, maxAge=%s)",
+            animalTypeIndex, tostring(eppTypeData.minimumAge), tostring(eppTypeData.maximumAge))
+    end
+
     for _, item in pairs(items) do
 
         if sourceItems[item] ~= nil then
@@ -68,9 +78,27 @@ function AnimalScreenTrailerFarm:applySourceBulk(animalTypeIndex, items)
 
             local errorCode = AnimalMoveEvent.validate(trailer, husbandry, ownerFarmId, animal.subTypeIndex)
 
-            if errorCode ~= nil then continue end
+            if errorCode ~= nil then
+                Log:trace("applySourceBulk: skipping '%s' (validate error=%d)", animal.name or "?", errorCode)
+                continue
+            end
 
-            if husbandry:getNumOfFreeAnimalSlots(animal.subTypeIndex) <= totalMovedAnimals then continue end
+            if eppTypeData ~= nil then
+                local age = animal.age or 0
+                local minAge = eppTypeData.minimumAge or 0
+                local maxAge = eppTypeData.maximumAge or 60
+                Log:trace("applySourceBulk: checking '%s' age=%d against allowed=%d-%d", animal.name or "?", age, minAge, maxAge)
+                if age < minAge or age > maxAge then
+                    Log:debug("applySourceBulk: REJECTED '%s' (age=%d, allowed=%d-%d)", animal.name or "?", age, minAge, maxAge)
+                    continue
+                end
+                Log:trace("applySourceBulk: PASSED '%s' age check", animal.name or "?")
+            end
+
+            if husbandry:getNumOfFreeAnimalSlots(animal.subTypeIndex) <= totalMovedAnimals then
+                Log:trace("applySourceBulk: skipping '%s' (no free slots, already queued=%d)", animal.name or "?", totalMovedAnimals)
+                continue
+            end
 
             totalMovedAnimals = totalMovedAnimals + 1
 
@@ -79,6 +107,13 @@ function AnimalScreenTrailerFarm:applySourceBulk(animalTypeIndex, items)
         end
 
     end
+
+    if #self.sourceAnimals == 0 then
+        Log:debug("applySourceBulk: no animals passed validation, skipping event")
+        return
+    end
+
+    Log:debug("applySourceBulk: sending %d of %d selected animals", totalMovedAnimals, #items)
 
     self.actionTypeCallback(AnimalScreenBase.ACTION_TYPE_SOURCE, g_i18n:getText(AnimalScreenTrailerFarm.L10N_SYMBOL.MOVE_TO_FARM))
 	g_messageCenter:subscribe(AnimalMoveEvent, self.onAnimalMovedToFarm, self)

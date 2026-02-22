@@ -1,3 +1,5 @@
+local Log = RmLogging.getLogger("RLRM")
+
 RealisticLivestock_AnimalScreen = {}
 
 
@@ -70,6 +72,36 @@ function RealisticLivestock_AnimalScreen:onAnimalScreenClose()
 end
 
 AnimalScreen.onClose = Utils.appendedFunction(AnimalScreen.onClose, RealisticLivestock_AnimalScreen.onAnimalScreenClose)
+
+
+--- Ensures RL state is initialized on the AnimalScreen instance.
+--- Some mods (e.g. EPP butchers) bypass AnimalScreen.show() and open the screen directly
+--- via g_gui:showGui("AnimalScreen"), skipping RL's setup (isTrailerFarm, NAV_ACTIONS, filters).
+--- This function re-derives the missing state from the controller so RL features work correctly.
+--- Safe to call multiple times — NAV_ACTIONS are only added once.
+function RealisticLivestock_AnimalScreen.ensureInitialized(self)
+    -- Derive isTrailerFarm from controller properties
+    self.isTrailerFarm = self.controller ~= nil and self.controller.trailer ~= nil and self.controller.husbandry ~= nil and not self.isDealer
+
+    -- Register NAV_ACTIONS if not already present (show() normally does this)
+    for _, action in ipairs(RealisticLivestock_AnimalScreen.NAV_ACTIONS) do
+        local found = false
+        for _, existing in ipairs(Gui.NAV_ACTIONS) do
+            if existing == action then
+                found = true
+                break
+            end
+        end
+        if not found then
+            table.insert(Gui.NAV_ACTIONS, action)
+        end
+    end
+
+    -- Reset filters if not set (show() normally does this)
+    if self.filters == nil then
+        self.filteredItems = nil
+    end
+end
 
 
 function RealisticLivestock_AnimalScreen:setController(_, husbandry, vehicle, isDealer)
@@ -1164,6 +1196,8 @@ end
 
 function RealisticLivestock_AnimalScreen:onClickBuyMode(a, b)
 
+    RealisticLivestock_AnimalScreen.ensureInitialized(self)
+
     self.isInfoMode = false
     self.isLogMode = false
     self.isHerdsmanMode = false
@@ -1201,6 +1235,8 @@ AnimalScreen.onClickBuyMode = Utils.prependedFunction(AnimalScreen.onClickBuyMod
 
 
 function RealisticLivestock_AnimalScreen:onClickSellMode(a, b)
+
+    RealisticLivestock_AnimalScreen.ensureInitialized(self)
 
     self.isInfoMode = false
     self.isLogMode = false
@@ -2285,6 +2321,8 @@ AnimalScreen.populateCellForItemInSection = Utils.overwrittenFunction(AnimalScre
 
 function AnimalScreen:onClickBuySelected()
 
+    RealisticLivestock_AnimalScreen.ensureInitialized(self)
+
     local itemsToProcess = {}
     local money = 0
     local animalTypeIndex = self.sourceSelectorStateToAnimalType[self.sourceSelector:getState()]
@@ -2333,6 +2371,8 @@ function AnimalScreen:onClickBuySelected()
 
     end
 
+    Log:trace("onClickBuySelected: showing dialog with %d items, money=%s, isBuyMode=%s, callback=%s",
+        #itemsToProcess, tostring(money), tostring(self.isBuyMode), tostring(callback == self.buySelected and "buySelected" or "sellSelected"))
     YesNoDialog.show(callback, self, string.format(confirmationText, #itemsToProcess, g_i18n:formatMoney(money, 2, true, true)), g_i18n:getText("ui_attention"), text, g_i18n:getText("button_back"))
 
 end
@@ -2340,6 +2380,7 @@ end
 
 function AnimalScreen:buySelected(clickYes)
 
+    Log:trace("buySelected: clickYes=%s, pendingBulkTransaction=%s", tostring(clickYes), self.pendingBulkTransaction ~= nil and string.format("%d items", #self.pendingBulkTransaction.items) or "nil")
     if not clickYes or self.pendingBulkTransaction == nil then return end
 
     self.controller:applySourceBulk(self.pendingBulkTransaction.animalTypeIndex, self.pendingBulkTransaction.items)
