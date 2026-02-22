@@ -627,5 +627,48 @@
 		<text name="rl_ui_dependency_missing_notInstalled" text="- %s (Not Installed)"/>
 		<text name="rl_ui_dependency_missing_installed" text="- %s (Installed: %s, Minimum Required: %s)"/>
 
+
+        <!-- Added missing translations -->
+        <text name="input_RL_AI" text="Kunstig befrugtning"/>
+        <text name="input_RL_CASTRATE" text="Kastrer dyr"/>
+        <text name="input_RL_DISEASES" text="Dyresygdomme"/>
+        <text name="input_RL_MARK" text="Markér/Fjern markering af dyr"/>
+        <text name="input_RL_MONITOR" text="Tilføj/Fjern monitor"/>
+        <text name="input_RL_OPEN_ANIMAL_SCREEN" text="Åbn dyreskærm"/>
+        <text name="input_RL_SELECT" text="Vælg/Fravælg dyr"/>
+        <text name="rl_message_dailyBirthsSummary" text="%s dyr blev født på %s"/>
+        <text name="rl_message_dailyDeathsSummary" text="%s dyr døde på %s - %s"/>
+        <text name="rl_message_dailyOvercrowdingSummary" text="Overbelægning: solgt %s nyfødte på %s for %s"/>
+        <text name="rl_message_dailyPurchasesSummary" text="Købt %s dyr på %s for %s"/>
+        <text name="rl_message_dailySalesSummary" text="Solgt %s dyr på %s for %s"/>
+        <text name="rl_settings_accidentsChance_tooltip_github" text="Ændre sandsynligheden for, at dyr dør på grund af tilfældige ulykker"/>
+        <text name="rl_settings_deathEnabled_label_github" text="Dødsfald"/>
+        <text name="rl_settings_deathEnabled_tooltip_1_github" text="Dyr vil ikke dø på grund af graviditet, helbred, alder eller ulykker"/>
+        <text name="rl_settings_deathEnabled_tooltip_2_github" text="Dyr vil dø på grund af graviditet, helbred, alder eller ulykker"/>
+        <text name="rl_settings_foodScale_label" text="Madvægt"/>
+        <text name="rl_settings_foodScale_tooltip" text="Ændre mængden af ​​mad, som dyrerne spiser"/>
+        <text name="rl_settings_messageSummary_label" text="Beskedlogopsummeringer"/>
+        <text name="rl_settings_messageSummary_tooltip_1" text="Fra: Individuelle beskeder for hver begivenhed"/>
+        <text name="rl_settings_messageSummary_tooltip_2" text="Til: Daglige opsummeringer pr. husdyrhold (reducerer logstøj)"/>
+        <text name="rl_settings_resetAIAnimals_label" text="Nulstil AI-dyr"/>
+        <text name="rl_settings_resetAIAnimals_text" text="Nulstil AI-dyr"/>
+        <text name="rl_settings_resetAIAnimals_tooltip" text="Fjern alle AI-dyr tilgængelige til kunstig befrugtning og genopfyld med nye tilfældigt genererede dyr"/>
+        <text name="rl_settings_resetDealer_label" text="Nulstil Dyrhandlen"/>
+        <text name="rl_settings_resetDealer_text" text="Nulstil Dyrhandlen"/>
+        <text name="rl_settings_resetDealer_tooltip" text="Fjern alle forhandlerens dyr og genopfyld lageret med nye dyr"/>
+        <text name="rl_ui_genetics_highest" text="Højest"/>
+        <text name="rl_ui_meat_github" text="Kødkvalitet"/>
+        <text name="rl_ui_openAnimalScreen" text="Administrer dyr"/>
+        <text name="rl_ui_quality" text="Kvalitet"/>
+        <text name="rl_ui_quality_github" text="Kødkvalitet"/>
+        <text name="rl_ui_removingAllMonitor" text="Fjerner alle..."/>
+        <text name="rl_ui_removingMonitor" text="Fjerner..."/>
+        <text name="rm_rl_conflict_title" text="Mod-konflikt opdaget"/>
+        <text name="rm_rl_migration_continue" text="Fortsæt"/>
+        <text name="rm_rl_migration_files_found" text="Fundne datafiler:"/>
+        <text name="rm_rl_migration_message" text="Tidligere Realistic Livestock-data blev fundet i denne gemte fil. Dine indstillinger, dyredata, Dewars og AI Straw-håndværktøj vil automatisk blive migreret til Realistic Livestock - RitterMod-versionen, når spillet gemmer."/>
+        <text name="rm_rl_migration_quit" text="Afslut"/>
+        <text name="rm_rl_migration_title" text="Meddelelse om datamigrering"/>
+        <text name="rm_rl_mod_conflict_message" text="Følgende mod(s) er i konflikt med 'Realistic Livestock - Ritter version' og kan ikke bruges sammen: %s &#10;&#10;Deaktiver venligst de modstridende mod(s) og genstart spillet."/>
     </texts>
 </l10n>

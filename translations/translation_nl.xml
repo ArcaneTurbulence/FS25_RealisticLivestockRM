@@ -635,6 +635,44 @@
 		<text name="rl_ui_dependencies_missing" text="RealisticLivestock requires the following dependencies:"/>
 		<text name="rl_ui_dependency_missing_notInstalled" text="- %s (Not Installed)"/>
 		<text name="rl_ui_dependency_missing_installed" text="- %s (Installed: %s, Minimum Required: %s)"/>
+        <!-- Added missing translations -->
+        <text name="input_RL_AI" text="Kunstmatige inseminatie"/>
+        <text name="input_RL_CASTRATE" text="Dier castreren"/>
+        <text name="input_RL_DISEASES" text="Dierziekten"/>
+        <text name="input_RL_MARK" text="Dier markeren/Markering opheffen"/>
+        <text name="input_RL_MONITOR" text="Monitor plaatsen/verwijderen"/>
+        <text name="input_RL_OPEN_ANIMAL_SCREEN" text="Dierenscherm openen"/>
+        <text name="input_RL_SELECT" text="Dier selecteren/Deselecteren"/>
+        <text name="rl_message_dailyBirthsSummary" text="%s dieren zijn geboren bij %s"/>
+        <text name="rl_message_dailyDeathsSummary" text="%s dieren zijn gestorven bij %s - %s"/>
+        <text name="rl_message_dailyOvercrowdingSummary" text="Overbevolking: %s pasgeborenen verkocht bij %s voor %s"/>
+        <text name="rl_message_dailyPurchasesSummary" text="%s dieren gekocht bij %s voor %s"/>
+        <text name="rl_message_dailySalesSummary" text="%s dieren verkocht bij %s voor %s"/>
+        <text name="rl_settings_accidentsChance_tooltip_github" text="Verander de kans dat dieren sterven door willekeurige ongevallen"/>
+        <text name="rl_settings_deathEnabled_label_github" text="Sterfte"/>
+        <text name="rl_settings_deathEnabled_tooltip_1_github" text="Dieren sterven niet door dracht, gezondheid, leeftijd of ongevallen"/>
+        <text name="rl_settings_deathEnabled_tooltip_2_github" text="Dieren sterven door dracht, gezondheid, leeftijd of ongevallen"/>
+        <text name="rl_settings_messageSummary_label" text="Samenvattingen berichtenlog"/>
+        <text name="rl_settings_messageSummary_tooltip_1" text="Uit: Individuele berichten voor elk evenement"/>
+        <text name="rl_settings_messageSummary_tooltip_2" text="Aan: Dagelijkse samenvattingen per veehouderij (vermindert logruis)"/>
+        <text name="rl_settings_resetAIAnimals_label" text="AI-dieren resetten"/>
+        <text name="rl_settings_resetAIAnimals_text" text="AI-dieren resetten"/>
+        <text name="rl_settings_resetAIAnimals_tooltip" text="Verwijder alle AI-dieren beschikbaar voor kunstmatige inseminatie en vul aan met nieuwe willekeurig gegenereerde dieren"/>
+        <text name="rl_ui_genetics_highest" text="Hoogst"/>
+        <text name="rl_ui_meat_github" text="Vleeskwaliteit"/>
+        <text name="rl_ui_openAnimalScreen" text="Dieren beheren"/>
+        <text name="rl_ui_quality" text="Kwaliteit"/>
+        <text name="rl_ui_quality_github" text="Vleeskwaliteit"/>
+        <text name="rl_ui_removingAllMonitor" text="Alles verwijderen..."/>
+        <text name="rl_ui_removingMonitor" text="Verwijderen..."/>
+        <text name="rm_rl_conflict_title" text="Mod-conflict gedetecteerd"/>
+        <text name="rm_rl_migration_continue" text="Doorgaan"/>
+        <text name="rm_rl_migration_files_found" text="Gevonden gegevensbestanden:"/>
+        <text name="rm_rl_migration_message" text="Eerdere Realistic Livestock-gegevens zijn gevonden in deze opslag. Uw instellingen, diergegevens, Dewars en AI Straw-handgereedschap worden automatisch gemigreerd naar de Realistic Livestock - RitterMod-versie wanneer het spel opslaat."/>
+        <text name="rm_rl_migration_quit" text="Afsluiten"/>
+        <text name="rm_rl_migration_title" text="Melding gegevensmigratie"/>
+        <text name="rm_rl_mod_conflict_message" text="De volgende mod(s) conflicteren met 'Realistic Livestock - Ritter version' en kunnen niet samen worden gebruikt: %s &#10;&#10;Schakel de conflicterende mod(s) uit en herstart het spel."/>
+
 
 	</texts>
 </l10n>

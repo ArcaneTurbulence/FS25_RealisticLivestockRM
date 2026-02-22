@@ -646,6 +646,37 @@
 		<text name="rl_ui_dependencies_missing" text="RealisticLivestock requires the following dependencies:"/>
 		<text name="rl_ui_dependency_missing_notInstalled" text="- %s (Not Installed)"/>
 		<text name="rl_ui_dependency_missing_installed" text="- %s (Installed: %s, Minimum Required: %s)"/>
+        <!-- Added missing translations -->
+        <text name="rl_ui_importance" text="Tärkeys"/>
+        <text name="input_RL_AI" text="Keinosiemennys"/>
+        <text name="input_RL_CASTRATE" text="Kastroi eläin"/>
+        <text name="input_RL_DISEASES" text="Eläintaudit"/>
+        <text name="input_RL_MARK" text="Merkitse/Poista merkintä"/>
+        <text name="input_RL_MONITOR" text="Asenna/Poista monitori"/>
+        <text name="input_RL_OPEN_ANIMAL_SCREEN" text="Avaa eläinnäkymä"/>
+        <text name="input_RL_SELECT" text="Valitse/Poista valinta"/>
+        <text name="rl_message_dailyBirthsSummary" text="%s eläintä syntyi kohteessa %s"/>
+        <text name="rl_message_dailyDeathsSummary" text="%s eläintä kuoli kohteessa %s - %s"/>
+        <text name="rl_message_dailyOvercrowdingSummary" text="Ylikansoitus: myyty %s vastasyntynyttä kohteessa %s hintaan %s"/>
+        <text name="rl_message_dailyPurchasesSummary" text="Ostettu %s eläintä kohteesta %s hintaan %s"/>
+        <text name="rl_message_dailySalesSummary" text="Myyty %s eläintä kohteesta %s hintaan %s"/>
+        <text name="rl_settings_messageSummary_label" text="Viestilokien yhteenvedot"/>
+        <text name="rl_settings_messageSummary_tooltip_1" text="Pois: Yksittäiset viestit jokaisesta tapahtumasta"/>
+        <text name="rl_settings_messageSummary_tooltip_2" text="Päällä: Päivittäiset yhteenvedot eläintilaa kohden (vähentää lokikohinaa)"/>
+        <text name="rl_settings_resetAIAnimals_label" text="Nollaa tekoälyeläimet"/>
+        <text name="rl_settings_resetAIAnimals_text" text="Nollaa tekoälyeläimet"/>
+        <text name="rl_settings_resetAIAnimals_tooltip" text="Poista kaikki keinosiemennykseen käytettävissä olevat tekoälyeläimet ja täydennä uusilla satunnaisesti luoduilla eläimillä"/>
+        <text name="rl_ui_openAnimalScreen" text="Hallitse eläimiä"/>
+        <text name="rl_ui_removingAllMonitor" text="Poistetaan kaikki..."/>
+        <text name="rl_ui_removingMonitor" text="Poistetaan..."/>
+        <text name="rm_rl_conflict_title" text="Mod-ristiriita havaittu"/>
+        <text name="rm_rl_migration_continue" text="Jatka"/>
+        <text name="rm_rl_migration_files_found" text="Löydetyt datatiedostot:"/>
+        <text name="rm_rl_migration_message" text="Tästä tallennuksesta löytyi aiempaa Realistic Livestock -dataa. Asetuksesi, eläintiedot, Dewarit ja AI Straw -käsityökalut siirretään automaattisesti Realistic Livestock - RitterMod -versioon pelin tallentaessa."/>
+        <text name="rm_rl_migration_quit" text="Lopeta"/>
+        <text name="rm_rl_migration_title" text="Tietojen siirtoilmoitus"/>
+        <text name="rm_rl_mod_conflict_message" text="Seuraavat modit ovat ristiriidassa 'Realistic Livestock - Ritter version' kanssa eikä niitä voi käyttää yhdessä: %s &#10;&#10;Poista ristiriitaiset modit käytöstä ja käynnistä peli uudelleen."/>
+
 		
 	</texts>
 </l10n>

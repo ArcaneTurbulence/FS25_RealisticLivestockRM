@@ -638,6 +638,44 @@
 		<text name="rl_ui_dependencies_missing" text="RealisticLivestock requires the following dependencies:"/>
 		<text name="rl_ui_dependency_missing_notInstalled" text="- %s (Not Installed)"/>
 		<text name="rl_ui_dependency_missing_installed" text="- %s (Installed: %s, Minimum Required: %s)"/>
+        <!-- Added missing translations -->
+        <text name="input_RL_AI" text="Umělé oplodnění"/>
+        <text name="input_RL_CASTRATE" text="Kastrovat zvíře"/>
+        <text name="input_RL_DISEASES" text="Nemoci zvířat"/>
+        <text name="input_RL_MARK" text="Označit/Odznačit zvíře"/>
+        <text name="input_RL_MONITOR" text="Přidat/Odebrat monitor"/>
+        <text name="input_RL_OPEN_ANIMAL_SCREEN" text="Otevřít obrazovku zvířat"/>
+        <text name="input_RL_SELECT" text="Vybrat/Zrušit výběr zvířete"/>
+        <text name="rl_message_dailyBirthsSummary" text="%s zvířat se narodilo v %s"/>
+        <text name="rl_message_dailyDeathsSummary" text="%s zvířat uhynulo v %s - %s"/>
+        <text name="rl_message_dailyOvercrowdingSummary" text="Přeplnění: prodáno %s mláďat v %s za %s"/>
+        <text name="rl_message_dailyPurchasesSummary" text="Zakoupeno %s zvířat v %s za %s"/>
+        <text name="rl_message_dailySalesSummary" text="Prodáno %s zvířat v %s za %s"/>
+        <text name="rl_settings_accidentsChance_tooltip_github" text="Změnit pravděpodobnost smrti zvířat kvůli náhodným nehodám"/>
+        <text name="rl_settings_deathEnabled_label_github" text="Smrt zvířat"/>
+        <text name="rl_settings_deathEnabled_tooltip_1_github" text="Zvířata nezemřou kvůli březosti, zdraví, věku nebo nehodám"/>
+        <text name="rl_settings_deathEnabled_tooltip_2_github" text="Zvířata zemřou kvůli březosti, zdraví, věku nebo nehodám"/>
+        <text name="rl_settings_messageSummary_label" text="Souhrny protokolu zpráv"/>
+        <text name="rl_settings_messageSummary_tooltip_1" text="Vyp: Jednotlivé zprávy pro každou událost"/>
+        <text name="rl_settings_messageSummary_tooltip_2" text="Zap: Denní souhrny za chov (snižuje šum v protokolu)"/>
+        <text name="rl_settings_resetAIAnimals_label" text="Resetovat AI zvířata"/>
+        <text name="rl_settings_resetAIAnimals_text" text="Resetovat AI zvířata"/>
+        <text name="rl_settings_resetAIAnimals_tooltip" text="Odstraní všechna AI zvířata dostupná pro umělé oplodnění a nahradí je novými náhodně generovanými zvířaty"/>
+        <text name="rl_ui_genetics_highest" text="Nejvyšší"/>
+        <text name="rl_ui_meat_github" text="Kvalita masa"/>
+        <text name="rl_ui_openAnimalScreen" text="Správa zvířat"/>
+        <text name="rl_ui_quality" text="Kvalita"/>
+        <text name="rl_ui_quality_github" text="Kvalita masa"/>
+        <text name="rl_ui_removingAllMonitor" text="Odebírání všech..."/>
+        <text name="rl_ui_removingMonitor" text="Odebírání..."/>
+        <text name="rm_rl_conflict_title" text="Zjištěn konflikt modů"/>
+        <text name="rm_rl_migration_continue" text="Pokračovat"/>
+        <text name="rm_rl_migration_files_found" text="Nalezené datové soubory:"/>
+        <text name="rm_rl_migration_message" text="V této uložené hře byla nalezena předchozí data Realistic Livestock. Vaše nastavení, data zvířat, Dewary a ruční nástroje AI Straw budou automaticky migrovány do verze Realistic Livestock - RitterMod při uložení hry."/>
+        <text name="rm_rl_migration_quit" text="Ukončit"/>
+        <text name="rm_rl_migration_title" text="Oznámení o migraci dat"/>
+        <text name="rm_rl_mod_conflict_message" text="Následující mod(y) jsou v konfliktu s 'Realistic Livestock - Ritter version' a nemohou být použity společně: %s &#10;&#10;Prosím deaktivujte konfliktní mod(y) a restartujte hru."/>
+
 
 	</texts>
 </l10n>

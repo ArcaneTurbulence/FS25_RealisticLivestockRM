@@ -634,5 +634,46 @@
 		<text name="rl_ui_dependencies_missing" text="RealisticLivestock requires the following dependencies:"/>
 		<text name="rl_ui_dependency_missing_notInstalled" text="- %s (Not Installed)"/>
 		<text name="rl_ui_dependency_missing_installed" text="- %s (Installed: %s, Minimum Required: %s)"/>
+        <!-- Added missing translations -->
+        <text name="input_RL_AI" text="Sztuczne zapłodnienie"/>
+        <text name="input_RL_CASTRATE" text="Wykastruj zwierzę"/>
+        <text name="input_RL_DISEASES" text="Choroby zwierząt"/>
+        <text name="input_RL_MARK" text="Oznacz/Odznacz zwierzę"/>
+        <text name="input_RL_MONITOR" text="Załóż/Zdejmij monitor"/>
+        <text name="input_RL_OPEN_ANIMAL_SCREEN" text="Otwórz ekran zwierząt"/>
+        <text name="input_RL_SELECT" text="Zaznacz/Odznacz zwierzę"/>
+        <text name="rl_message_dailyBirthsSummary" text="%s zwierząt urodziło się w %s"/>
+        <text name="rl_message_dailyDeathsSummary" text="%s zwierząt zmarło w %s - %s"/>
+        <text name="rl_message_dailyOvercrowdingSummary" text="Przepełnienie: sprzedano %s noworodków w %s za %s"/>
+        <text name="rl_message_dailyPurchasesSummary" text="Zakupiono %s zwierząt w %s za %s"/>
+        <text name="rl_message_dailySalesSummary" text="Sprzedano %s zwierząt w %s za %s"/>
+        <text name="rl_settings_accidentsChance_tooltip_github" text="Zmień prawdopodobieństwo śmierci zwierząt z powodu losowych wypadków"/>
+        <text name="rl_settings_deathEnabled_label_github" text="Śmierć zwierząt"/>
+        <text name="rl_settings_deathEnabled_tooltip_1_github" text="Zwierzęta nie umrą z powodu ciąży, zdrowia, wieku lub wypadków"/>
+        <text name="rl_settings_deathEnabled_tooltip_2_github" text="Zwierzęta umrą z powodu ciąży, zdrowia, wieku lub wypadków"/>
+        <text name="rl_settings_messageSummary_label" text="Podsumowania dziennika wiadomości"/>
+        <text name="rl_settings_messageSummary_tooltip_1" text="Wył: Indywidualne wiadomości dla każdego zdarzenia"/>
+        <text name="rl_settings_messageSummary_tooltip_2" text="Wł: Dzienne podsumowania na hodowlę (zmniejsza szum w dzienniku)"/>
+        <text name="rl_settings_resetAIAnimals_label" text="Zresetuj zwierzęta AI"/>
+        <text name="rl_settings_resetAIAnimals_text" text="Zresetuj zwierzęta AI"/>
+        <text name="rl_settings_resetAIAnimals_tooltip" text="Usuń wszystkie zwierzęta AI dostępne do sztucznego zapłodnienia i uzupełnij nowymi losowo wygenerowanymi zwierzętami"/>
+        <text name="rl_settings_resetDealer_label" text="Zresetuj handlarza zwierząt"/>
+        <text name="rl_settings_resetDealer_text" text="Zresetuj handlarza zwierząt"/>
+        <text name="rl_settings_resetDealer_tooltip" text="Usuń wszystkie zwierzęta handlarza i uzupełnij zapasy nowymi zwierzętami"/>
+        <text name="rl_ui_genetics_highest" text="Najwyższy"/>
+        <text name="rl_ui_meat_github" text="Jakość mięsa"/>
+        <text name="rl_ui_openAnimalScreen" text="Zarządzaj zwierzętami"/>
+        <text name="rl_ui_quality" text="Jakość"/>
+        <text name="rl_ui_quality_github" text="Jakość mięsa"/>
+        <text name="rl_ui_removingAllMonitor" text="Usuwanie wszystkich..."/>
+        <text name="rl_ui_removingMonitor" text="Usuwanie..."/>
+        <text name="rm_rl_conflict_title" text="Wykryto konflikt modów"/>
+        <text name="rm_rl_migration_continue" text="Kontynuuj"/>
+        <text name="rm_rl_migration_files_found" text="Znalezione pliki danych:"/>
+        <text name="rm_rl_migration_message" text="W tym zapisie gry znaleziono poprzednie dane Realistic Livestock. Twoje ustawienia, dane zwierząt, Dewary i narzędzia ręczne AI Straw zostaną automatycznie zmigrowane do wersji Realistic Livestock - RitterMod podczas zapisywania gry."/>
+        <text name="rm_rl_migration_quit" text="Wyjdź"/>
+        <text name="rm_rl_migration_title" text="Powiadomienie o migracji danych"/>
+        <text name="rm_rl_mod_conflict_message" text="Następujące mody są w konflikcie z 'Realistic Livestock - Ritter version' i nie mogą być używane razem: %s &#10;&#10;Proszę wyłączyć konfliktujące mody i zrestartować grę."/>
+
 	</texts>
 </l10n>

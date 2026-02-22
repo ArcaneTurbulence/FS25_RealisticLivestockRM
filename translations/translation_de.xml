@@ -634,6 +634,47 @@
 		<text name="rl_ui_dependencies_missing" text="RealisticLivestock requires the following dependencies:"/>
 		<text name="rl_ui_dependency_missing_notInstalled" text="- %s (Not Installed)"/>
 		<text name="rl_ui_dependency_missing_installed" text="- %s (Installed: %s, Minimum Required: %s)"/>
+        <!-- Added missing translations -->
+        <text name="input_RL_AI" text="Künstliche Befruchtung"/>
+        <text name="input_RL_CASTRATE" text="Tier kastrieren"/>
+        <text name="input_RL_DISEASES" text="Tierkrankheiten"/>
+        <text name="input_RL_MARK" text="Tier markieren/Markierung aufheben"/>
+        <text name="input_RL_MONITOR" text="Monitor anbringen/entfernen"/>
+        <text name="input_RL_OPEN_ANIMAL_SCREEN" text="Tierbildschirm öffnen"/>
+        <text name="input_RL_SELECT" text="Tier auswählen/Auswahl aufheben"/>
+        <text name="rl_message_dailyBirthsSummary" text="%s Tiere wurden bei %s geboren"/>
+        <text name="rl_message_dailyDeathsSummary" text="%s Tiere starben bei %s - %s"/>
+        <text name="rl_message_dailyOvercrowdingSummary" text="Überbelegung: %s Neugeborene bei %s für %s verkauft"/>
+        <text name="rl_message_dailyPurchasesSummary" text="%s Tiere bei %s für %s gekauft"/>
+        <text name="rl_message_dailySalesSummary" text="%s Tiere bei %s für %s verkauft"/>
+        <text name="rl_settings_accidentsChance_tooltip_github" text="Änderung der Wahrscheinlichkeit, dass Tiere aufgrund von Zufallsunfällen sterben"/>
+        <text name="rl_settings_deathEnabled_label_github" text="Tiertod"/>
+        <text name="rl_settings_deathEnabled_tooltip_1_github" text="Tiere sterben nicht aufgrund von Schwangerschaft, Gesundheit, Alter oder Unfällen."/>
+        <text name="rl_settings_deathEnabled_tooltip_2_github" text="Tiere sterben aufgrund von Schwangerschaft, Gesundheit, Alter oder Unfällen."/>
+        <text name="rl_settings_messageSummary_label" text="Zusammenfassungen des Nachrichtenprotokolls"/>
+        <text name="rl_settings_messageSummary_tooltip_1" text="Aus: Einzelne Nachrichten für jedes Ereignis"/>
+        <text name="rl_settings_messageSummary_tooltip_2" text="An: Tägliche Zusammenfassungen pro Tierhaltung (reduziert Protokollrauschen)"/>
+        <text name="rl_settings_resetAIAnimals_label" text="KI-Tiere zurücksetzen"/>
+        <text name="rl_settings_resetAIAnimals_text" text="KI-Tiere zurücksetzen"/>
+        <text name="rl_settings_resetAIAnimals_tooltip" text="Alle für künstliche Befruchtung verfügbaren KI-Tiere entfernen und mit neuen zufällig generierten Tieren auffüllen"/>
+        <text name="rl_settings_resetDealer_label" text="Tierhändler zurücksetzen"/>
+        <text name="rl_settings_resetDealer_text" text="Tierhändler zurücksetzen"/>
+        <text name="rl_settings_resetDealer_tooltip" text="Entfernen Sie alle Tiere des Händlers und füllen Sie den Bestand mit neuen Tieren auf"/>
+        <text name="rl_ui_genetics_highest" text="Maximum"/>
+        <text name="rl_ui_meat_github" text="Fleischqualität"/>
+        <text name="rl_ui_openAnimalScreen" text="Tiere verwalten"/>
+        <text name="rl_ui_quality" text="Qualität"/>
+        <text name="rl_ui_quality_github" text="Fleischqualität"/>
+        <text name="rl_ui_removingAllMonitor" text="Alle entfernen..."/>
+        <text name="rl_ui_removingMonitor" text="Entfernen..."/>
+        <text name="rm_rl_conflict_title" text="Mod-Konflikt erkannt"/>
+        <text name="rm_rl_migration_continue" text="Fortfahren"/>
+        <text name="rm_rl_migration_files_found" text="Gefundene Datendateien:"/>
+        <text name="rm_rl_migration_message" text="In diesem Spielstand wurden frühere Realistic Livestock-Daten gefunden. Ihre Einstellungen, Tierdaten, Dewars und AI Straw-Handwerkzeuge werden automatisch zur Realistic Livestock - RitterMod-Version migriert, wenn das Spiel speichert."/>
+        <text name="rm_rl_migration_quit" text="Beenden"/>
+        <text name="rm_rl_migration_title" text="Hinweis zur Datenmigration"/>
+        <text name="rm_rl_mod_conflict_message" text="Die folgenden Mod(s) stehen in Konflikt mit 'Realistic Livestock - Ritter version' und können nicht zusammen verwendet werden: %s &#10;&#10;Bitte deaktivieren Sie die konfliktverursachenden Mod(s) und starten Sie das Spiel neu."/>
+
 
 	</texts>
 </l10n>

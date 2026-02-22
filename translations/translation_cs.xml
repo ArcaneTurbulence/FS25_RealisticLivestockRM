@@ -669,6 +669,21 @@
 		<text name="rm_rl_migration_files_found" text="Data files found:"/>
 		<text name="rm_rl_migration_continue" text="Continue"/>
 		<text name="rm_rl_migration_quit" text="Quit"/>
+        <!-- Added missing translations -->
+        <text name="input_RL_AI" text="人工授精"/>
+        <text name="input_RL_CASTRATE" text="阉割动物"/>
+        <text name="input_RL_DISEASES" text="动物疾病"/>
+        <text name="input_RL_MARK" text="标记/取消标记动物"/>
+        <text name="input_RL_MONITOR" text="安装/移除监测器"/>
+        <text name="input_RL_OPEN_ANIMAL_SCREEN" text="打开动物界面"/>
+        <text name="input_RL_SELECT" text="选择/取消选择动物"/>
+        <text name="rl_settings_resetAIAnimals_label" text="重置AI动物"/>
+        <text name="rl_settings_resetAIAnimals_text" text="重置AI动物"/>
+        <text name="rl_settings_resetAIAnimals_tooltip" text="移除所有可用于人工授精的AI动物，并用新的随机生成动物补充"/>
+        <text name="rl_ui_openAnimalScreen" text="管理动物"/>
+        <text name="rl_ui_removingAllMonitor" text="正在移除所有..."/>
+        <text name="rl_ui_removingMonitor" text="正在移除..."/>
+
 
 
 	</texts>

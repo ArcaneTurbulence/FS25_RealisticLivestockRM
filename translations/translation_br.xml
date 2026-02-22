@@ -636,6 +636,44 @@
 		<text name="rl_ui_dependencies_missing" text="RealisticLivestock requires the following dependencies:"/>
 		<text name="rl_ui_dependency_missing_notInstalled" text="- %s (Not Installed)"/>
 		<text name="rl_ui_dependency_missing_installed" text="- %s (Installed: %s, Minimum Required: %s)"/>
+        <!-- Added missing translations -->
+        <text name="input_RL_AI" text="Inseminação Artificial"/>
+        <text name="input_RL_CASTRATE" text="Castrar Animal"/>
+        <text name="input_RL_DISEASES" text="Doenças dos Animais"/>
+        <text name="input_RL_MARK" text="Marcar/Desmarcar Animal"/>
+        <text name="input_RL_MONITOR" text="Aplicar/Remover Monitor"/>
+        <text name="input_RL_OPEN_ANIMAL_SCREEN" text="Abrir Tela de Animais"/>
+        <text name="input_RL_SELECT" text="Selecionar/Deselecionar Animal"/>
+        <text name="rl_message_dailyBirthsSummary" text="%s animais nasceram em %s"/>
+        <text name="rl_message_dailyDeathsSummary" text="%s animais morreram em %s - %s"/>
+        <text name="rl_message_dailyOvercrowdingSummary" text="Superlotação: vendidos %s recém-nascidos em %s por %s"/>
+        <text name="rl_message_dailyPurchasesSummary" text="Comprados %s animais em %s por %s"/>
+        <text name="rl_message_dailySalesSummary" text="Vendidos %s animais em %s por %s"/>
+        <text name="rl_settings_accidentsChance_tooltip_github" text="Alterar a probabilidade de animais morrerem devido a acidentes aleatórios"/>
+        <text name="rl_settings_deathEnabled_label_github" text="Morte de Animais"/>
+        <text name="rl_settings_deathEnabled_tooltip_1_github" text="Os animais não morrerão devido à gravidez, saúde, idade ou acidentes"/>
+        <text name="rl_settings_deathEnabled_tooltip_2_github" text="Os animais morrerão devido à gravidez, saúde, idade ou acidentes"/>
+        <text name="rl_settings_messageSummary_label" text="Resumos do Registro de Mensagens"/>
+        <text name="rl_settings_messageSummary_tooltip_1" text="Desativado: Mensagens individuais para cada evento"/>
+        <text name="rl_settings_messageSummary_tooltip_2" text="Ativado: Resumos diários por criação (reduz ruído no registro)"/>
+        <text name="rl_settings_resetAIAnimals_label" text="Reiniciar Animais de IA"/>
+        <text name="rl_settings_resetAIAnimals_text" text="Reiniciar Animais de IA"/>
+        <text name="rl_settings_resetAIAnimals_tooltip" text="Remove todos os animais de IA disponíveis para inseminação artificial e repõe com novos animais gerados aleatoriamente"/>
+        <text name="rl_ui_genetics_highest" text="Máximo"/>
+        <text name="rl_ui_meat_github" text="Qualidade da Carne"/>
+        <text name="rl_ui_openAnimalScreen" text="Gerenciar Animais"/>
+        <text name="rl_ui_quality" text="Qualidade"/>
+        <text name="rl_ui_quality_github" text="Qualidade da Carne"/>
+        <text name="rl_ui_removingAllMonitor" text="Removendo Todos..."/>
+        <text name="rl_ui_removingMonitor" text="Removendo..."/>
+        <text name="rm_rl_conflict_title" text="Conflito de mod detectado"/>
+        <text name="rm_rl_migration_continue" text="Continuar"/>
+        <text name="rm_rl_migration_files_found" text="Arquivos de dados encontrados:"/>
+        <text name="rm_rl_migration_message" text="Dados anteriores do Realistic Livestock foram encontrados neste save. Suas configurações, dados de animais, Dewars e ferramentas manuais AI Straw serão automaticamente migrados para a versão Realistic Livestock - RitterMod quando o jogo salvar."/>
+        <text name="rm_rl_migration_quit" text="Sair"/>
+        <text name="rm_rl_migration_title" text="Aviso de migração de dados"/>
+        <text name="rm_rl_mod_conflict_message" text="O(s) seguinte(s) mod(s) estão em conflito com 'Realistic Livestock - Ritter version' e não podem ser usados juntos: %s &#10;&#10;Por favor, desative o(s) mod(s) conflitante(s) e reinicie o jogo."/>
+
 		
 	</texts>
 </l10n>

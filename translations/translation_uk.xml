@@ -614,5 +614,46 @@
 		<text name="rl_ui_dependencies_missing" text="RealisticLivestock requires the following dependencies:"/>
 		<text name="rl_ui_dependency_missing_notInstalled" text="- %s (Not Installed)"/>
 		<text name="rl_ui_dependency_missing_installed" text="- %s (Installed: %s, Minimum Required: %s)"/>
+        <!-- Added missing translations -->
+        <text name="input_RL_AI" text="Штучне запліднення"/>
+        <text name="input_RL_CASTRATE" text="Каструвати тварину"/>
+        <text name="input_RL_DISEASES" text="Хвороби тварин"/>
+        <text name="input_RL_MARK" text="Позначити/Зняти позначку"/>
+        <text name="input_RL_MONITOR" text="Встановити/Зняти монітор"/>
+        <text name="input_RL_OPEN_ANIMAL_SCREEN" text="Відкрити екран тварин"/>
+        <text name="input_RL_SELECT" text="Обрати/Скасувати вибір"/>
+        <text name="rl_message_dailyBirthsSummary" text="%s тварин народилося у %s"/>
+        <text name="rl_message_dailyDeathsSummary" text="%s тварин загинуло у %s - %s"/>
+        <text name="rl_message_dailyOvercrowdingSummary" text="Перенаселення: продано %s новонароджених у %s за %s"/>
+        <text name="rl_message_dailyPurchasesSummary" text="Куплено %s тварин у %s за %s"/>
+        <text name="rl_message_dailySalesSummary" text="Продано %s тварин у %s за %s"/>
+        <text name="rl_settings_accidentsChance_tooltip_github" text="Змінити ймовірність загибелі тварин через випадкові нещасні випадки"/>
+        <text name="rl_settings_deathEnabled_label_github" text="Смерть тварин"/>
+        <text name="rl_settings_deathEnabled_tooltip_1_github" text="Тварини не помиратимуть через вагітність, стан здоров'я, вік або нещасні випадки"/>
+        <text name="rl_settings_deathEnabled_tooltip_2_github" text="Тварини помиратимуть через вагітність, стан здоров'я, вік або нещасні випадки"/>
+        <text name="rl_settings_messageSummary_label" text="Зведення журналу повідомлень"/>
+        <text name="rl_settings_messageSummary_tooltip_1" text="Вимк: Окремі повідомлення для кожної події"/>
+        <text name="rl_settings_messageSummary_tooltip_2" text="Увімк: Щоденні зведення по господарству (зменшує шум у журналі)"/>
+        <text name="rl_settings_resetAIAnimals_label" text="Скинути ШІ-тварин"/>
+        <text name="rl_settings_resetAIAnimals_text" text="Скинути ШІ-тварин"/>
+        <text name="rl_settings_resetAIAnimals_tooltip" text="Видалити всіх ШІ-тварин, доступних для штучного запліднення, та поповнити новими випадково згенерованими тваринами"/>
+        <text name="rl_settings_resetDealer_label" text="Скинути торговця тваринами"/>
+        <text name="rl_settings_resetDealer_text" text="Скинути торговця тваринами"/>
+        <text name="rl_settings_resetDealer_tooltip" text="Видалити всіх тварин у торговця та поповнити запас новими тваринами"/>
+        <text name="rl_ui_genetics_highest" text="Найвищий"/>
+        <text name="rl_ui_meat_github" text="Якість м'яса"/>
+        <text name="rl_ui_openAnimalScreen" text="Керування тваринами"/>
+        <text name="rl_ui_quality" text="Якість"/>
+        <text name="rl_ui_quality_github" text="Якість м'яса"/>
+        <text name="rl_ui_removingAllMonitor" text="Видалення всіх..."/>
+        <text name="rl_ui_removingMonitor" text="Видалення..."/>
+        <text name="rm_rl_conflict_title" text="Виявлено конфлікт модів"/>
+        <text name="rm_rl_migration_continue" text="Продовжити"/>
+        <text name="rm_rl_migration_files_found" text="Знайдені файли даних:"/>
+        <text name="rm_rl_migration_message" text="У цьому збереженні знайдено попередні дані Realistic Livestock. Ваші налаштування, дані тварин, Дьюари та ручні інструменти AI Straw будуть автоматично перенесені до версії Realistic Livestock - RitterMod при збереженні гри."/>
+        <text name="rm_rl_migration_quit" text="Вийти"/>
+        <text name="rm_rl_migration_title" text="Повідомлення про міграцію даних"/>
+        <text name="rm_rl_mod_conflict_message" text="Наступні моди конфліктують з 'Realistic Livestock - Ritter version' і не можуть використовуватися разом: %s &#10;&#10;Будь ласка, вимкніть конфліктуючі моди та перезапустіть гру."/>
+
 	</texts>
 </l10n>

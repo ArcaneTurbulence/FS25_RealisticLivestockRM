@@ -637,6 +637,44 @@
 		<text name="rl_ui_dependencies_missing" text="RealisticLivestock requires the following dependencies:"/>
 		<text name="rl_ui_dependency_missing_notInstalled" text="- %s (Not Installed)"/>
 		<text name="rl_ui_dependency_missing_installed" text="- %s (Installed: %s, Minimum Required: %s)"/>
+        <!-- Added missing translations -->
+        <text name="input_RL_AI" text="Yapay tohumlama"/>
+        <text name="input_RL_CASTRATE" text="Hayvanı Hadım Et"/>
+        <text name="input_RL_DISEASES" text="Hayvan Hastalıkları"/>
+        <text name="input_RL_MARK" text="Hayvanı İşaretle/İşareti Kaldır"/>
+        <text name="input_RL_MONITOR" text="Monitör Uygula/Kaldır"/>
+        <text name="input_RL_OPEN_ANIMAL_SCREEN" text="Hayvan Ekranını Aç"/>
+        <text name="input_RL_SELECT" text="Hayvanı Seç/Seçimi Kaldır"/>
+        <text name="rl_message_dailyBirthsSummary" text="%s hayvan %s'de doğdu"/>
+        <text name="rl_message_dailyDeathsSummary" text="%s hayvan %s'de öldü - %s"/>
+        <text name="rl_message_dailyOvercrowdingSummary" text="Aşırı kalabalık: %s yeni doğan %s'de %s'ye satıldı"/>
+        <text name="rl_message_dailyPurchasesSummary" text="%s'de %s hayvan %s'ye satın alındı"/>
+        <text name="rl_message_dailySalesSummary" text="%s'de %s hayvan %s'ye satıldı"/>
+        <text name="rl_settings_accidentsChance_tooltip_github" text="Hayvanların rastgele kazalar nedeniyle ölme olasılığını değiştirin"/>
+        <text name="rl_settings_deathEnabled_label_github" text="Hayvan Ölümü"/>
+        <text name="rl_settings_deathEnabled_tooltip_1_github" text="Hayvanlar hamilelik, sağlık, yaş veya kazalar nedeniyle ölmeyecek"/>
+        <text name="rl_settings_deathEnabled_tooltip_2_github" text="Hayvanlar hamilelik, sağlık, yaş veya kazalar nedeniyle ölecek"/>
+        <text name="rl_settings_messageSummary_label" text="Mesaj Günlüğü Özetleri"/>
+        <text name="rl_settings_messageSummary_tooltip_1" text="Kapalı: Her olay için ayrı mesajlar"/>
+        <text name="rl_settings_messageSummary_tooltip_2" text="Açık: Çiftlik başına günlük özetler (günlük gürültüsünü azaltır)"/>
+        <text name="rl_settings_resetAIAnimals_label" text="Yapay Zeka Hayvanlarını Sıfırla"/>
+        <text name="rl_settings_resetAIAnimals_text" text="Yapay Zeka Hayvanlarını Sıfırla"/>
+        <text name="rl_settings_resetAIAnimals_tooltip" text="Yapay tohumlama için mevcut tüm yapay zeka hayvanlarını kaldırın ve rastgele oluşturulmuş yeni hayvanlarla doldurun"/>
+        <text name="rl_ui_genetics_highest" text="En Yüksek"/>
+        <text name="rl_ui_meat_github" text="Et Kalitesi"/>
+        <text name="rl_ui_openAnimalScreen" text="Hayvanları Yönet"/>
+        <text name="rl_ui_quality" text="Kalite"/>
+        <text name="rl_ui_quality_github" text="Et Kalitesi"/>
+        <text name="rl_ui_removingAllMonitor" text="Tümü kaldırılıyor..."/>
+        <text name="rl_ui_removingMonitor" text="Kaldırılıyor..."/>
+        <text name="rm_rl_conflict_title" text="Mod çakışması tespit edildi"/>
+        <text name="rm_rl_migration_continue" text="Devam et"/>
+        <text name="rm_rl_migration_files_found" text="Bulunan veri dosyaları:"/>
+        <text name="rm_rl_migration_message" text="Bu kayıtlı oyunda önceki Realistic Livestock verileri bulundu. Ayarlarınız, hayvan verileri, Dewarlar ve AI Straw el aletleri, oyun kaydedildiğinde otomatik olarak Realistic Livestock - RitterMod sürümüne taşınacaktır."/>
+        <text name="rm_rl_migration_quit" text="Çıkış"/>
+        <text name="rm_rl_migration_title" text="Veri taşıma bildirimi"/>
+        <text name="rm_rl_mod_conflict_message" text="Aşağıdaki mod(lar) 'Realistic Livestock - Ritter version' ile çakışıyor ve birlikte kullanılamaz: %s &#10;&#10;Lütfen çakışan mod(ları) devre dışı bırakın ve oyunu yeniden başlatın."/>
+
 		
 	</texts>
 </l10n>

@@ -632,6 +632,47 @@
 		<text name="rl_ui_dependencies_missing" text="RealisticLivestock requires the following dependencies:"/>
 		<text name="rl_ui_dependency_missing_notInstalled" text="- %s (Not Installed)"/>
 		<text name="rl_ui_dependency_missing_installed" text="- %s (Installed: %s, Minimum Required: %s)"/>
+        <!-- Added missing translations -->
+        <text name="input_RL_AI" text="Искусственное осеменение"/>
+        <text name="input_RL_CASTRATE" text="Кастрировать животное"/>
+        <text name="input_RL_DISEASES" text="Болезни животных"/>
+        <text name="input_RL_MARK" text="Пометить/Снять метку"/>
+        <text name="input_RL_MONITOR" text="Установить/Снять монитор"/>
+        <text name="input_RL_OPEN_ANIMAL_SCREEN" text="Открыть экран животных"/>
+        <text name="input_RL_SELECT" text="Выбрать/Отменить выбор"/>
+        <text name="rl_message_dailyBirthsSummary" text="%s животных родилось в %s"/>
+        <text name="rl_message_dailyDeathsSummary" text="%s животных погибло в %s - %s"/>
+        <text name="rl_message_dailyOvercrowdingSummary" text="Перенаселение: продано %s новорождённых в %s за %s"/>
+        <text name="rl_message_dailyPurchasesSummary" text="Куплено %s животных в %s за %s"/>
+        <text name="rl_message_dailySalesSummary" text="Продано %s животных в %s за %s"/>
+        <text name="rl_settings_accidentsChance_tooltip_github" text="Изменить вероятность гибели животных из-за случайных несчастных случаев"/>
+        <text name="rl_settings_deathEnabled_label_github" text="Смерть животных"/>
+        <text name="rl_settings_deathEnabled_tooltip_1_github" text="Животные не будут умирать из-за беременности, здоровья, возраста или несчастных случаев"/>
+        <text name="rl_settings_deathEnabled_tooltip_2_github" text="Животные будут умирать из-за беременности, здоровья, возраста или несчастных случаев"/>
+        <text name="rl_settings_messageSummary_label" text="Сводки журнала сообщений"/>
+        <text name="rl_settings_messageSummary_tooltip_1" text="Выкл: Отдельные сообщения для каждого события"/>
+        <text name="rl_settings_messageSummary_tooltip_2" text="Вкл: Ежедневные сводки по хозяйству (уменьшает шум в журнале)"/>
+        <text name="rl_settings_resetAIAnimals_label" text="Сбросить ИИ-животных"/>
+        <text name="rl_settings_resetAIAnimals_text" text="Сбросить ИИ-животных"/>
+        <text name="rl_settings_resetAIAnimals_tooltip" text="Удалить всех ИИ-животных, доступных для искусственного осеменения, и пополнить новыми случайно сгенерированными животными"/>
+        <text name="rl_settings_resetDealer_label" text="Сбросить торговца животными"/>
+        <text name="rl_settings_resetDealer_text" text="Сбросить торговца животными"/>
+        <text name="rl_settings_resetDealer_tooltip" text="Удалить всех животных у торговца и пополнить запас новыми животными"/>
+        <text name="rl_ui_genetics_highest" text="Высочайший"/>
+        <text name="rl_ui_meat_github" text="Качество мяса"/>
+        <text name="rl_ui_openAnimalScreen" text="Управление животными"/>
+        <text name="rl_ui_quality" text="Качество"/>
+        <text name="rl_ui_quality_github" text="Качество мяса"/>
+        <text name="rl_ui_removingAllMonitor" text="Удаление всех..."/>
+        <text name="rl_ui_removingMonitor" text="Удаление..."/>
+        <text name="rm_rl_conflict_title" text="Обнаружен конфликт модов"/>
+        <text name="rm_rl_migration_continue" text="Продолжить"/>
+        <text name="rm_rl_migration_files_found" text="Найденные файлы данных:"/>
+        <text name="rm_rl_migration_message" text="В этом сохранении найдены предыдущие данные Realistic Livestock. Ваши настройки, данные животных, Дьюары и ручные инструменты AI Straw будут автоматически перенесены в версию Realistic Livestock - RitterMod при сохранении игры."/>
+        <text name="rm_rl_migration_quit" text="Выйти"/>
+        <text name="rm_rl_migration_title" text="Уведомление о миграции данных"/>
+        <text name="rm_rl_mod_conflict_message" text="Следующие моды конфликтуют с 'Realistic Livestock - Ritter version' и не могут использоваться вместе: %s &#10;&#10;Пожалуйста, отключите конфликтующие моды и перезапустите игру."/>
+
 
 	</texts>
 </l10n>
