@@ -67,10 +67,30 @@ end
 InGameMenuAnimalsFrame.populateCellForItemInSection = Utils.appendedFunction(InGameMenuAnimalsFrame.populateCellForItemInSection, RealisticLivestock_InGameMenuAnimalsFrame.populateCellForItemInSection)
 
 
--- Register RL_OPEN_ANIMAL_SCREEN action in Gui.NAV_ACTIONS so the key works in menus
-if Gui ~= nil and Gui.NAV_ACTIONS ~= nil then
+-- Add RL_OPEN_ANIMAL_SCREEN to NAV_ACTIONS only while the animals frame is active,
+-- so the R key doesn't interfere with other frames (e.g. RemoveContract in contracts frame).
+function RealisticLivestock_InGameMenuAnimalsFrame:onFrameOpen()
     table.insert(Gui.NAV_ACTIONS, InputAction.RL_OPEN_ANIMAL_SCREEN)
 end
+
+InGameMenuAnimalsFrame.onFrameOpen = Utils.appendedFunction(
+    InGameMenuAnimalsFrame.onFrameOpen,
+    RealisticLivestock_InGameMenuAnimalsFrame.onFrameOpen
+)
+
+function RealisticLivestock_InGameMenuAnimalsFrame:onFrameClose()
+    for i = #Gui.NAV_ACTIONS, 1, -1 do
+        if Gui.NAV_ACTIONS[i] == InputAction.RL_OPEN_ANIMAL_SCREEN then
+            table.remove(Gui.NAV_ACTIONS, i)
+            break
+        end
+    end
+end
+
+InGameMenuAnimalsFrame.onFrameClose = Utils.appendedFunction(
+    InGameMenuAnimalsFrame.onFrameClose,
+    RealisticLivestock_InGameMenuAnimalsFrame.onFrameClose
+)
 
 
 function RealisticLivestock_InGameMenuAnimalsFrame:onUpdateMenuButtons()
