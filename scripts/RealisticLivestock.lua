@@ -266,7 +266,6 @@ FinanceStats.statNameToIndex["medicine"] = #FinanceStats.statNames
 
 function RealisticLivestock.loadMap()
     Log = RmLogging.getLogger("RLRM")
-    RmLogging.registerConsoleCommands()
 
     RealisticLivestock.mapAreaCode = RLMapBridge.getMapAreaCode()
         or RealisticLivestock.MAP_TO_AREA_CODE[g_currentMission.missionInfo.mapTitle]
