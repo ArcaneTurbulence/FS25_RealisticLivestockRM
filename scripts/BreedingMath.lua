@@ -15,12 +15,15 @@ BreedingMath = {}
 -- Choose a constant within-family SD (here: 10% of range 0.25..1.75)
 BreedingMath.SD_CONST = 0.10 * (1.75 - 0.25) -- 0.15
 
+-- Helper functions exposed as BreedingMath.* for testability.
+-- The intended public API is breedOffspring().
+
 ---Clamps a value between low and high bounds
 ---@param x number Value to clamp
 ---@param lo number Lower bound
 ---@param hi number Upper bound
 ---@return number Clamped value
-local function clamp(x, lo, hi)
+function BreedingMath.clamp(x, lo, hi)
     if x < lo then return lo end
     if x > hi then return hi end
     return x
@@ -28,7 +31,7 @@ end
 
 ---Standard normal RNG using Box-Muller transform
 ---@return number Standard normal random value
-local function randn()
+function BreedingMath.randn()
     local u1, u2 = 0.0, 0.0
     repeat u1 = math.random() until u1 > 0.0 -- avoid log(0)
     u2 = math.random()
@@ -38,7 +41,7 @@ end
 ---Error function approximation (Abramowitz & Stegun 7.1.26)
 ---@param x number Input value
 ---@return number Error function value
-local function erf(x)
+function BreedingMath.erf(x)
     local sign = 1.0
     if x < 0 then
         sign = -1.0
@@ -53,14 +56,14 @@ end
 ---Standard normal CDF (cumulative distribution function)
 ---@param x number Input value
 ---@return number Probability P(X <= x)
-local function normal_cdf(x)
-    return 0.5 * (1.0 + erf(x / math.sqrt(2.0)))
+function BreedingMath.normal_cdf(x)
+    return 0.5 * (1.0 + BreedingMath.erf(x / math.sqrt(2.0)))
 end
 
 ---Inverse standard normal CDF using Acklam's approximation
 ---@param p number Probability in (0,1)
 ---@return number x such that P(X <= x) = p
-local function inv_norm_cdf(p)
+function BreedingMath.inv_norm_cdf(p)
     assert(p > 0.0 and p < 1.0, "p must be in (0,1)")
 
     -- Coefficients
@@ -97,7 +100,7 @@ local function inv_norm_cdf(p)
         local q = math.sqrt(-2.0 * math.log(p))
         local num = horner(q, c)
         local den = horner(q, d)
-        return -(num / den)
+        return (num / den)
     elseif p > phigh then
         local q = math.sqrt(-2.0 * math.log(1.0 - p))
         local num = horner(q, c)
@@ -117,11 +120,11 @@ end
 ---@param delta number Difference between parent values
 ---@param p_outside number Target probability of exceeding parent range
 ---@return number|nil Standard deviation, or nil if delta <= 0
-local function sd_from_poutside(delta, p_outside)
+function BreedingMath.sd_from_poutside(delta, p_outside)
     assert(p_outside > 0.0 and p_outside < 1.0, "p_outside must be in (0,1)")
     if delta <= 0.0 then return nil end -- undefined when parents are equal
     local alpha = 1.0 - 0.5 * p_outside
-    local z = inv_norm_cdf(alpha)
+    local z = BreedingMath.inv_norm_cdf(alpha)
     return delta / (2.0 * z)
 end
 
@@ -152,7 +155,7 @@ function BreedingMath.breedOffspring(parent1, parent2, opts)
     local sd = opts.sd
     if not sd then
         if opts.p_outside and opts.p_outside > 0.0 and opts.p_outside < 1.0 and delta > 0.0 then
-            sd = sd_from_poutside(delta, opts.p_outside)
+            sd = BreedingMath.sd_from_poutside(delta, opts.p_outside)
         else
             -- Fallback default: moderate within-family variance (~12% of range)
             sd = 0.12 * (max_val - min_val)
@@ -161,14 +164,14 @@ function BreedingMath.breedOffspring(parent1, parent2, opts)
     sd = math.max(sd, 1e-9) -- guard against zero
 
     -- Sample offspring phenotype ~ N(mid, sd^2)
-    local child = mid + sd * randn()
+    local child = mid + sd * BreedingMath.randn()
     if clamp_out then
-        child = clamp(child, min_val, max_val)
+        child = BreedingMath.clamp(child, min_val, max_val)
     end
 
     -- Outcome probabilities implied by sd (before clamping)
     local z = delta / (2.0 * sd)
-    local p_above = 1.0 - normal_cdf(z)
+    local p_above = 1.0 - BreedingMath.normal_cdf(z)
     local p_below = p_above
     local p_between = 1.0 - (p_above + p_below)
 

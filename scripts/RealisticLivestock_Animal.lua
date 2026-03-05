@@ -32,6 +32,15 @@ function Animal.resolveSubType(subTypeIndex, subTypeName)
 end
 
 
+--- Compute check digit from farm herd ID and animal ID
+---@param farmHerdId string
+---@param id string
+---@return number checkDigit Value 1-7
+function Animal.computeCheckDigit(farmHerdId, id)
+    return (tonumber(farmHerdId .. id) % 7) + 1
+end
+
+
 function Animal.new(age, health, monthsSinceLastBirth, gender, subTypeIndex, reproduction, isParent, isPregnant, isLactating, clusterSystem, id, motherId, fatherId, pos, name, dirt, fitness, riding, farmId, weight, genetics, impregnatedBy, variation, children, monitor, isCastrated, diseases, recentlyBoughtByAI, marks, insemination)
 
     local self = setmetatable({}, Animal_mt)
@@ -211,8 +220,7 @@ function Animal.new(age, health, monthsSinceLastBirth, gender, subTypeIndex, rep
                     end
                 end
 
-                local concatenated = farmHerdId .. id
-                local checkDigit = (tonumber(concatenated)::number % 7) + 1
+                local checkDigit = Animal.computeCheckDigit(farmHerdId, id)
                 id = checkDigit .. id
             end
         end
