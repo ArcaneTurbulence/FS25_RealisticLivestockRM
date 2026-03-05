@@ -135,7 +135,7 @@ function AnimalAIDialog:populateCellForItemInSection(list, section, index, cell)
     local subType = g_currentMission.animalSystem:getSubTypeByIndex(animal.subTypeIndex)
 
     cell:getAttribute("name"):setText(animal.name)
-    cell:getAttribute("identifier"):setText(string.format("%s %s %s", RealisticLivestock.AREA_CODES[animal.country].code, animal.farmId, animal.uniqueId))
+    cell:getAttribute("identifier"):setText(string.format("%s %s %s", RLConstants.AREA_CODES[animal.country].code, animal.farmId, animal.uniqueId))
     cell:getAttribute("subType"):setText(g_fillTypeManager:getFillTypeTitleByIndex(subType.fillTypeIndex))
     cell:getAttribute("straws"):setText(dewar.straws)
     cell:getAttribute("success"):setText(string.format("%s%%", tostring(math.round(animal.success * 100))))
@@ -210,8 +210,8 @@ function AnimalAIDialog:onClickSortButton(button)
 
         if target == "identifier" then
 
-            aTarget = string.format("%s %s %s", RealisticLivestock.AREA_CODES[a.animal.country].code, a.animal.farmId, a.animal.uniqueId)
-            bTarget = string.format("%s %s %s", RealisticLivestock.AREA_CODES[b.animal.country].code, b.animal.farmId, b.animal.uniqueId)
+            aTarget = string.format("%s %s %s", RLConstants.AREA_CODES[a.animal.country].code, a.animal.farmId, a.animal.uniqueId)
+            bTarget = string.format("%s %s %s", RLConstants.AREA_CODES[b.animal.country].code, b.animal.farmId, b.animal.uniqueId)
 
         else
 

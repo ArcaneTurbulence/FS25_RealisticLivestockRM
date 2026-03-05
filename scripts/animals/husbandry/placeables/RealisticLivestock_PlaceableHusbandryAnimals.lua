@@ -53,10 +53,10 @@ function PlaceableHusbandryAnimals:addRLMessageDirect(id, animal, args, date, un
         if month > 12 then month = month - 12 end
 
         local daysPerPeriod = environment.daysPerPeriod
-        local day = 1 + math.floor((currentDayInPeriod - 1) * (RealisticLivestock.DAYS_PER_MONTH[month] / daysPerPeriod))
+        local day = 1 + math.floor((currentDayInPeriod - 1) * (RLConstants.DAYS_PER_MONTH[month] / daysPerPeriod))
         local year = environment.currentYear
 
-        date = string.format("%s/%s/%s", day, month, year + RealisticLivestock.START_YEAR.FULL)
+        date = string.format("%s/%s/%s", day, month, year + RLConstants.START_YEAR.FULL)
 
     end
 
@@ -253,7 +253,7 @@ function RealisticLivestock_PlaceableHusbandryAnimals:onDayChanged()
         if month > 12 then month = month - 12 end
 
         local daysPerPeriod = environment.daysPerPeriod
-        local day = 1 + math.floor((currentDayInPeriod - 1) * (RealisticLivestock.DAYS_PER_MONTH[month] / daysPerPeriod))
+        local day = 1 + math.floor((currentDayInPeriod - 1) * (RLConstants.DAYS_PER_MONTH[month] / daysPerPeriod))
         local year = environment.currentYear
 
         local spec = self.spec_husbandryAnimals

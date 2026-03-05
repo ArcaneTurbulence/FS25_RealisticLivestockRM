@@ -850,7 +850,7 @@ function AnimalScreen:onClickHerdsmanMode()
 
             for _, dewar in pairs(dewars) do
 
-                table.insert(dewarTexts, string.format("%s %s %s (%s %s)", RealisticLivestock.AREA_CODES[dewar.animal.country].code, dewar.animal.farmId, dewar.animal.uniqueId, dewar.straws, g_i18n:getText("rl_ui_straw" .. (dewar.straws == 1 and "Single" or "Multiple"))))
+                table.insert(dewarTexts, string.format("%s %s %s (%s %s)", RLConstants.AREA_CODES[dewar.animal.country].code, dewar.animal.farmId, dewar.animal.uniqueId, dewar.straws, g_i18n:getText("rl_ui_straw" .. (dewar.straws == 1 and "Single" or "Multiple"))))
                 table.insert(dewarValues, dewar:getUniqueId())
 
             end
@@ -2019,7 +2019,7 @@ function RealisticLivestock_AnimalScreen:populateCellForItemInSection(_, list, _
 
         local name = animal:getName()
 
-        if name == nil or name == "" then name = string.format("%s %s %s", RealisticLivestock.AREA_CODES[animal.birthday.country].code, animal.farmId, animal.uniqueId) end
+        if name == nil or name == "" then name = string.format("%s %s %s", RLConstants.AREA_CODES[animal.birthday.country].code, animal.farmId, animal.uniqueId) end
 
         name = RL_AnimalScreenBase.formatDisplayName(name, animal)
 
@@ -2224,7 +2224,7 @@ function RealisticLivestock_AnimalScreen:populateCellForItemInSection(_, list, _
         
         elseif isMarked then
 
-            local markText = RealisticLivestock.MARKS[animal:getHighestPriorityMark()].text
+            local markText = RLConstants.MARKS[animal:getHighestPriorityMark()].text
 
             descriptor:setText(g_i18n:getText("rl_mark_" .. markText))
 

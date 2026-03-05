@@ -162,7 +162,7 @@ function VisualAnimal:setLeftEarTag()
     local uniqueId = self.animal.uniqueId
     local farmId = self.animal.farmId
     local birthday = self.animal:getBirthday()
-	local countryCode = birthday ~= nil and birthday.country ~= nil and (RealisticLivestock.AREA_CODES[birthday.country] or RealisticLivestock.getMapCountryCode()).code
+	local countryCode = birthday ~= nil and birthday.country ~= nil and (RLConstants.AREA_CODES[birthday.country] or RealisticLivestock.getMapCountryCode()).code
 	local node = self.nodes.earTagLeft
 	local colour = self.leftTextColour
 
@@ -210,7 +210,7 @@ function VisualAnimal:setRightEarTag()
 	local colour = self.rightTextColour
 	local name = self.animal:getName()
     local birthday = self.animal:getBirthday()
-	local day, month, year = birthday.day, birthday.month, birthday.year + RealisticLivestock.START_YEAR.PARTIAL
+	local day, month, year = birthday.day, birthday.month, birthday.year + RLConstants.START_YEAR.PARTIAL
 	local birthdayText = string.format("%s%s/%s%s/%s%s", day < 10 and 0 or "", day, month < 10 and 0 or "", month, year < 10 and 0 or "", year)
 
 	local front = getChild(node, "front")

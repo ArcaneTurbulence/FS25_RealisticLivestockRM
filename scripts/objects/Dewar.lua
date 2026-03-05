@@ -325,7 +325,7 @@ function Dewar:showInfo(box)
     box:addLine(g_i18n:getText("rl_ui_species"), animalSystem:getTypeByIndex(animal.typeIndex).groupTitle)
     box:addLine(g_i18n:getText("infohud_type"), g_fillTypeManager:getFillTypeTitleByIndex(subType.fillTypeIndex))
 	box:addLine(g_i18n:getText("infohud_name"), animal.name)
-	box:addLine(g_i18n:getText("rl_ui_earTag"), string.format("%s %s %s", RealisticLivestock.AREA_CODES[animal.country].code, animal.farmId, animal.uniqueId))
+	box:addLine(g_i18n:getText("rl_ui_earTag"), string.format("%s %s %s", RLConstants.AREA_CODES[animal.country].code, animal.farmId, animal.uniqueId))
 
 	for type, value in pairs(animal.genetics) do
 
@@ -423,7 +423,7 @@ function Dewar:updateAnimalVisuals()
 
 	local parent = I3DUtil.indexToObject(self.shapeNode, "0|0")
 
-	local country = RealisticLivestock.AREA_CODES[self.animal.country].code
+	local country = RLConstants.AREA_CODES[self.animal.country].code
 	local farmId = self.animal.farmId
 	local uniqueId = self.animal.uniqueId
 	

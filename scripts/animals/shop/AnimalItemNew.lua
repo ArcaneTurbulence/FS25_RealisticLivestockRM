@@ -41,7 +41,7 @@ function AnimalItemNew.new(animal)
 		},
 		{
 			["title"] = g_i18n:getText("rl_ui_animalOrigin"),
-			["value"] = RealisticLivestock.AREA_CODES[countryIndex].country
+			["value"] = RLConstants.AREA_CODES[countryIndex].country
 		},
 		{
 			["title"] = g_i18n:getText("ui_age"),
@@ -136,7 +136,7 @@ function AnimalItemNew:getName()
 
 	local animal = self.animal
 
-	return animal.name or string.format("%s %s %s", RealisticLivestock.AREA_CODES[animal.birthday.country].code, animal.farmId, animal.uniqueId)
+	return animal.name or string.format("%s %s %s", RLConstants.AREA_CODES[animal.birthday.country].code, animal.farmId, animal.uniqueId)
 
 end
 

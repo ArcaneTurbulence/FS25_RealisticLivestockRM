@@ -368,7 +368,7 @@ function HandToolAIStraw:showInfo(box)
     box:addLine(g_i18n:getText("rl_ui_species"), animalSystem:getTypeByIndex(animal.typeIndex).groupTitle)
     box:addLine(g_i18n:getText("infohud_type"), g_fillTypeManager:getFillTypeTitleByIndex(subType.fillTypeIndex))
 	box:addLine(g_i18n:getText("infohud_name"), animal.name)
-	box:addLine(g_i18n:getText("rl_ui_earTag"), string.format("%s %s %s", RealisticLivestock.AREA_CODES[animal.country].code, animal.farmId, animal.uniqueId))
+	box:addLine(g_i18n:getText("rl_ui_earTag"), string.format("%s %s %s", RLConstants.AREA_CODES[animal.country].code, animal.farmId, animal.uniqueId))
 
 	for type, value in pairs(animal.genetics) do
 

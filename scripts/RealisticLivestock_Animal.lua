@@ -294,10 +294,10 @@ function Animal.new(age, health, monthsSinceLastBirth, gender, subTypeIndex, rep
 
         if birthMonth <= 0 then birthMonth = 12 + birthMonth end
 
-        local birthCountry = math.random() >= 0.01 and RealisticLivestock.getMapCountryIndex() or math.random(1, #RealisticLivestock.AREA_CODES)
+        local birthCountry = math.random() >= 0.01 and RealisticLivestock.getMapCountryIndex() or math.random(1, #RLConstants.AREA_CODES)
 
         self.birthday = {
-            ["day"] = math.random(1, RealisticLivestock.DAYS_PER_MONTH[birthMonth]),
+            ["day"] = math.random(1, RLConstants.DAYS_PER_MONTH[birthMonth]),
             ["month"] = birthMonth,
             ["year"] = birthYear,
             ["country"] = birthCountry,
@@ -1498,7 +1498,7 @@ function Animal:addInfos(infos)
             end
 
             self.infoPregnancyExpecting.valueText = string.format("%s %s", #pregnancy.pregnancies, g_i18n:getText("rl_ui_pregnancy" .. (#pregnancy.pregnancies == 1 and "Baby" or "Babies")))
-            self.infoPregnancyExpected.valueText = string.format("%s/%s/%s", pregnancy.expected.day, pregnancy.expected.month, pregnancy.expected.year + RealisticLivestock.START_YEAR.FULL)
+            self.infoPregnancyExpected.valueText = string.format("%s/%s/%s", pregnancy.expected.day, pregnancy.expected.month, pregnancy.expected.year + RLConstants.START_YEAR.FULL)
 
             table.insert(infos, self.infoPregnancyExpecting)
             table.insert(infos, self.infoPregnancyExpected)
@@ -1603,7 +1603,7 @@ function Animal:showInfo(box)
     if self.birthday ~= nil then
 
         local birthday = self.birthday
-        box:addLine(g_i18n:getText("rl_ui_birthday"), string.format("%d/%d/%d", birthday.day, birthday.month, RealisticLivestock.START_YEAR.FULL + birthday.year))
+        box:addLine(g_i18n:getText("rl_ui_birthday"), string.format("%d/%d/%d", birthday.day, birthday.month, RLConstants.START_YEAR.FULL + birthday.year))
 
     end
 
@@ -1626,7 +1626,7 @@ function Animal:showInfo(box)
         if pregnancy ~= nil and pregnancy.pregnancies and #pregnancy.pregnancies > 0 then
 
             box:addLine(g_i18n:getText("rl_ui_pregnancyExpecting"), string.format("%s %s", #pregnancy.pregnancies, g_i18n:getText("rl_ui_pregnancy" .. (#pregnancy.pregnancies == 1 and "Baby" or "Babies"))))
-            box:addLine(g_i18n:getText("rl_ui_pregnancyExpected"), string.format("%s/%s/%s", pregnancy.expected.day, pregnancy.expected.month, pregnancy.expected.year + RealisticLivestock.START_YEAR.FULL))
+            box:addLine(g_i18n:getText("rl_ui_pregnancyExpected"), string.format("%s/%s/%s", pregnancy.expected.day, pregnancy.expected.month, pregnancy.expected.year + RLConstants.START_YEAR.FULL))
 
         end
 
@@ -2203,7 +2203,7 @@ function Animal:onDayChanged(spec, isServer, day, month, year, currentDayInPerio
         if month > 12 then month = month - 12 end
 
         daysPerPeriod = environment.daysPerPeriod
-        day = 1 + math.floor((currentDayInPeriod - 1) * (RealisticLivestock.DAYS_PER_MONTH[month] / daysPerPeriod))
+        day = 1 + math.floor((currentDayInPeriod - 1) * (RLConstants.DAYS_PER_MONTH[month] / daysPerPeriod))
         year = environment.currentYear
 
     end
@@ -2263,7 +2263,7 @@ function Animal:onDayChanged(spec, isServer, day, month, year, currentDayInPerio
             g_server:broadcastEvent(AnimalInseminationResultEvent.new(self.clusterSystem.owner, self, true))
 
             self:createPregnancy(childNum, month, year, {
-                ["uniqueId"] = string.format("%s %s %s", RealisticLivestock.AREA_CODES[insemination.country].code, insemination.farmId, insemination.uniqueId),
+                ["uniqueId"] = string.format("%s %s %s", RLConstants.AREA_CODES[insemination.country].code, insemination.farmId, insemination.uniqueId),
                 ["metabolism"] = insemination.genetics.metabolism,
                 ["quality"] = insemination.genetics.quality,
                 ["health"] = insemination.genetics.health,
@@ -2597,7 +2597,7 @@ function Animal:createPregnancy(childNum, month, year, father)
         expectedYear = expectedYear + 1
     end
 
-    local expectedDay = math.random(1, RealisticLivestock.DAYS_PER_MONTH[expectedMonth])
+    local expectedDay = math.random(1, RLConstants.DAYS_PER_MONTH[expectedMonth])
 
 
     self.pregnancy = {
@@ -3363,7 +3363,7 @@ end
 
 function Animal:getIdentifiers()
 
-    return string.format("%s %s %s", RealisticLivestock.AREA_CODES[self.birthday.country].code, self.farmId, self.uniqueId)
+    return string.format("%s %s %s", RLConstants.AREA_CODES[self.birthday.country].code, self.farmId, self.uniqueId)
 
 end
 
@@ -3424,7 +3424,7 @@ end
 
 function Animal:getDefaultMarks()
 
-    return table.clone(RealisticLivestock.MARKS, 3)
+    return table.clone(RLConstants.MARKS, 3)
 
 end
 
@@ -3460,7 +3460,7 @@ function Animal:getCanBeInseminatedByAnimal(animal)
 
     if self.isParent and self.monthsSinceLastBirth <= 2 then return false, g_i18n:getText("rl_insemination_recovering") end
 
-    if string.format("%s %s %s", RealisticLivestock.AREA_CODES[animal.country].code, animal.farmId, animal.uniqueId) == self.fatherId then return false, g_i18n:getText("rl_insemination_father") end
+    if string.format("%s %s %s", RLConstants.AREA_CODES[animal.country].code, animal.farmId, animal.uniqueId) == self.fatherId then return false, g_i18n:getText("rl_insemination_father") end
 
     return true
 

@@ -61,7 +61,7 @@ function RealisticLivestock_LivestockTrailer:dayChanged(superFunc)
         if month > 12 then month = month - 12 end
 
         local daysPerPeriod = environment.daysPerPeriod
-        local day = 1 + math.floor((currentDayInPeriod - 1) * (RealisticLivestock.DAYS_PER_MONTH[month] / daysPerPeriod))
+        local day = 1 + math.floor((currentDayInPeriod - 1) * (RLConstants.DAYS_PER_MONTH[month] / daysPerPeriod))
         local year = environment.currentYear
 
         local spec = self.spec_livestockTrailer

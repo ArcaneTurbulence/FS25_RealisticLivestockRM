@@ -6,14 +6,15 @@ local modDirectory = g_currentModDirectory
 
 
 local function getDaysInMonth(month)
-    local daysPerMonth = RealisticLivestock ~= nil and RealisticLivestock.DAYS_PER_MONTH or nil
+    -- Nil-guard retained as defensive pattern for load-order safety
+    local daysPerMonth = RLConstants ~= nil and RLConstants.DAYS_PER_MONTH or nil
     if daysPerMonth == nil then
-        Logging.warning("RealisticLivestock: DAYS_PER_MONTH not available, using fallback of 1")
+        Log:warning("DAYS_PER_MONTH not available, using fallback of 1")
         return 1
     end
     local days = daysPerMonth[month]
     if days == nil then
-        Logging.warning("RealisticLivestock: No days defined for month %d, using fallback of 1", month)
+        Log:warning("No days defined for month %d, using fallback of 1", month)
         return 1
     end
     return days
@@ -517,7 +518,7 @@ function AnimalSystem:initialiseCountries()
     end
 
 
-    for countryIndex, country in pairs(RealisticLivestock.AREA_CODES) do
+    for countryIndex, country in pairs(RLConstants.AREA_CODES) do
 
         self.countries[countryIndex] = {
             ["index"] = countryIndex,
@@ -548,7 +549,7 @@ function AnimalSystem:validateFarms(hasData)
     -- validate every country exists
 
 
-    for countryIndex, info in pairs(RealisticLivestock.AREA_CODES) do
+    for countryIndex, info in pairs(RLConstants.AREA_CODES) do
 
         if self.countries[countryIndex] == nil then
 

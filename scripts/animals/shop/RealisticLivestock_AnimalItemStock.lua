@@ -95,7 +95,7 @@ function RealisticLivestock_AnimalItemStock.new(animal)
         if pregnancy ~= nil and pregnancy.pregnancies and #pregnancy.pregnancies > 0 then
 
             table.insert(self.infos, { ["title"] = g_i18n:getText("rl_ui_pregnancyExpecting"), ["value"] = string.format("%s %s", #pregnancy.pregnancies, g_i18n:getText("rl_ui_pregnancy" .. (#pregnancy.pregnancies == 1 and "Baby" or "Babies"))) })
-            table.insert(self.infos, { ["title"] = g_i18n:getText("rl_ui_pregnancyExpected"), ["value"] = string.format("%s/%s/%s", pregnancy.expected.day, pregnancy.expected.month, pregnancy.expected.year + RealisticLivestock.START_YEAR.FULL) })         
+            table.insert(self.infos, { ["title"] = g_i18n:getText("rl_ui_pregnancyExpected"), ["value"] = string.format("%s/%s/%s", pregnancy.expected.day, pregnancy.expected.month, pregnancy.expected.year + RLConstants.START_YEAR.FULL) })         
 
 		end
 
