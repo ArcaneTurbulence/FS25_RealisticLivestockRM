@@ -1,7 +1,6 @@
 # Changelog
 
 ## v1.1.0.0-dev:
-1.1.0.0-dev:
 - Added Move tab for transferring animals between husbandries with destination picker and bulk move
 - Added custom icons for all Animal Screen tabs
 - Internal refactoring for code quality and testability
