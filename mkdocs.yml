@@ -62,4 +62,5 @@ nav:
       - Genetics: guide-genetics.md
       - Breeding & Reproduction: guide-breeding.md
       - Diseases: guide-diseases.md
+  - FAQ: faq.md
   - Settings Reference: reference-settings.md
