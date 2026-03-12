@@ -1,6 +1,6 @@
 <modDesc descVersion="106">
     <author>Ritter</author>
-    <version>1.1.0.0-dev</version>
+    <version>1.1.0.0</version>
     <title>
         <en>Realistic Livestock - Ritter version</en>
         <it>Allevamento Realistico - Versione Ritter</it>
@@ -24,12 +24,12 @@ Source code and issue tracker: https://github.com/rittermod/FS25_RealisticLivest
 
 Changelog
 
-v1.1.0.0-dev:
+v1.1.0.0:
 - Added Move tab for transferring animals between husbandries with destination picker and bulk move
 - Added custom icons for all Animal Screen tabs
-- Internal refactoring for code quality and testability
-- Hide castration tab in herdsman screen for chickens (not supported)
+- Hidden castration tab in herdsman screen for chickens (not applicable)
 - Fixed visual glitch in herdsman screen when enabling castration
+- Internal refactoring for code quality and testability
 
 v1.0.2.0:
 - Added genetics display in animal names (average score, or full breakdown per trait)
