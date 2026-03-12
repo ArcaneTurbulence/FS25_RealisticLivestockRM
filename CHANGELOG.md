@@ -1,8 +1,10 @@
 # Changelog
 
-## v1.1.0.0-dev:
+## v1.1.0.0:
 - Added Move tab for transferring animals between husbandries with destination picker and bulk move
 - Added custom icons for all Animal Screen tabs
+- Hidden castration tab in herdsman screen for chickens (not applicable)
+- Fixed visual glitch in herdsman screen when enabling castration
 - Internal refactoring for code quality and testability
 
 ## v1.0.2.0:

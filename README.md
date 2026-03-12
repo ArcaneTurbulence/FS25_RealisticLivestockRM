@@ -24,6 +24,7 @@ This is a maintained version of the original mod by Arrow-kb, who has discontinu
 - Animal monitoring to track individual animals over time
 - Weight system tied to genetics and feeding
 - Animal marking and castration
+- Move tab for transferring animals between husbandries with bulk move support
 - Daily summary mode for message log
 - In-game help pages covering monitors, pregnancy, production, weight, and genetics
 - Highland cattle bull support

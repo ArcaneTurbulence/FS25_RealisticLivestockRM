@@ -95,13 +95,15 @@ See the [Settings Reference](reference-settings.md) for all options.
 
 ### Livestock Menu
 
-Press **R** in the animal menu to open the livestock management screen. It has several tabs:
+Press **R** in the animal menu to open the animal screen. It has seven tabs:
 
-- **Animal overview** - Browse individual animals with their stats, genetics, and health
-- **Herdsman** - Set up automation rules for your herds
-- **Artificial insemination** - Breed without keeping males
-- **Message log** - Track births, deaths, diseases, and other events (supports daily summary mode)
-- **CSV export** - Export detailed data for analysis
+- **Buy** - Purchase animals from the dealer with full genetics preview
+- **Sell** - Sell animals back to the dealer
+- **Move** - Transfer animals between your husbandries
+- **Animal Information** - View detailed stats, genetics, health, and production for each animal
+- **Insemination** - Browse and buy stored semen for artificial breeding without keeping males
+- **Message Log** - Track births, deaths, diseases, and other events
+- **Herdsman** - Automate herd management: auto-buy, auto-sell, castration rules, naming conventions, and auto-insemination. Save and load automation profiles.
 
 ### Controls
 
